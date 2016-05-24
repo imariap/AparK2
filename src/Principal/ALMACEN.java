@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
 public class ALMACEN{
-	// Comentario de prueba
+	
 	private static ALMACEN instance = null;
 	private ArrayList<TransferTaller> datosTaller;
 	private static String nombreArchivo = "BaseDeDatos";

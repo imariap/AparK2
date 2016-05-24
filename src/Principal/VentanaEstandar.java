@@ -25,7 +25,7 @@ public class VentanaEstandar extends JFrame{
          //this.setDefaultCloseOperation(salir());
          this.setUndecorated(true);
          this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-         this.getRootPane().setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, colorNaraja));
+         this.getRootPane().setBorder(BorderFactory.createMatteBorder(2, 0, 2, 2, colorNaraja));
          this.getContentPane().setLayout(new GridBagLayout());
          GridBagConstraints constraints = new GridBagConstraints();
          
@@ -33,6 +33,8 @@ public class VentanaEstandar extends JFrame{
          // Panel de opciones (iquierdo)
          JPanel panelOpciones = new JPanel(new BorderLayout()); 
          panelOpciones.setBackground(colorNaraja);
+         panelOpciones.setBorder(BorderFactory.createMatteBorder(2, 2, 0, 2, colorNaraja));
+
          
          // Panel central (derecho)
          JPanel panelCentral = new JPanel(new BorderLayout());

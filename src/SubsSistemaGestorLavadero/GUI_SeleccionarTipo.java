@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -25,10 +26,16 @@ public class GUI_SeleccionarTipo {
 		private static GUI_SeleccionarTipo instance = null;
 		
 		private JPanel root;
-		private JLabel lb_matricula;
-		private JTextField txt_matricula;
-		private JButton bt_siguiente;
+		private JLabel lb_tipoAgua;
+		private JLabel lb_tipoLavado;
+		private JLabel lb_cristales;
+		private JLabel lb_Llantas;
+		private JComboBox<String> op_agua;
+		private JComboBox<String> op_lavado;
+		private JComboBox<String> op_cristales;
+		private JComboBox<String> op_llantas;
 		private JFrame frame;
+		JButton bt_iniciarLavado;
 		
 		public GUI_SeleccionarTipo(){
 			create();
@@ -42,44 +49,87 @@ public class GUI_SeleccionarTipo {
 		}
 		private void create(){
 			// Declaracion del JPanel y su Layout
-			JPanel miPanel = new JPanel(new GridBagLayout());		
+			root = new JPanel(new GridBagLayout());		
 			GridBagConstraints gbc = new GridBagConstraints();
 	        gbc.insets = new Insets(10,10,10,10);
 	        
 	        // Estilo del JPanel
-			miPanel.setBackground(Color.WHITE);
+			root.setBackground(Color.WHITE);
 			
-			lb_matricula = new JLabel("Matricula:");
-			txt_matricula = new JTextField();
-			txt_matricula.setPreferredSize( new Dimension( 200, 24 ) );
-			bt_siguiente = new JButton("Buscar");
+			bt_iniciarLavado = new JButton("Iniciar lavado");
+			lb_tipoAgua = new JLabel("Tipo de agua");
+			lb_tipoLavado = new JLabel("Tipo de lavado");
+			lb_cristales = new JLabel("Cristales");
+			lb_Llantas = new JLabel("Llantas");
+			
+			op_agua = new JComboBox<String>();
+			op_agua.setPreferredSize( new Dimension( 150, 24 ) );
+			op_lavado = new JComboBox<String>();
+			op_lavado.setPreferredSize( new Dimension( 150, 24 ) );
+			op_cristales = new JComboBox<String>();
+			op_cristales.setPreferredSize( new Dimension( 150, 24 ) );
+			op_llantas = new JComboBox<String>();
+			op_llantas.setPreferredSize( new Dimension( 150, 24 ) );
+			
+			op_agua.addItem("Agua fría");
+			op_agua.addItem("Agua caliente");
+			
+			op_lavado.addItem("Lavado rápido");
+			op_lavado.addItem("Lavado completo");
+
+			op_cristales.addItem("Nada");
+			op_cristales.addItem("Ecológico");
+			op_cristales.addItem("Químico");
+
+			op_llantas.addItem("Nada");
+			op_llantas.addItem("Ecológico");
+			op_llantas.addItem("Químico");
 			
 			crearListener();
 			
 			gbc.gridx = 0; gbc.gridy = 0;
-			miPanel.add(lb_matricula, gbc);
+			root.add(lb_tipoAgua, gbc);
 			
 			gbc.gridx = 0; gbc.gridy = 1;
-			miPanel.add(txt_matricula, gbc);
+			root.add(lb_tipoLavado, gbc);
 			
 			gbc.gridx = 0; gbc.gridy = 2;
-			miPanel.add(bt_siguiente, gbc);
+			root.add(lb_cristales, gbc);
+			
+			gbc.gridx = 0; gbc.gridy = 3;
+			root.add(lb_Llantas, gbc);
+			
+			gbc.gridx = 1; gbc.gridy = 0;
+			root.add(op_agua, gbc);
+			
+			gbc.gridx = 1; gbc.gridy = 1;
+			root.add(op_lavado, gbc);
+			
+			gbc.gridx = 1; gbc.gridy = 2;
+			root.add(op_cristales, gbc);
+			
+			gbc.gridx = 1; gbc.gridy = 3;
+			root.add(op_llantas, gbc);
+			
+			gbc.gridx = 1; gbc.gridy = 4; 
+			root.add(bt_iniciarLavado, gbc);
 
-			frame = new VentanaEstandar(miPanel);
+			frame = new VentanaEstandar(root);
 			
 		}
 		public void crearListener(){
-			bt_siguiente.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				/*
-				 * ¿¿Tenemos que usar el transfer??
-				 * 
-				 * */
-				TransferTaller tranferTaller = new TransferTaller(txt_matricula.getText());
-				Gestor_de_Taller.getInstance().action(1, tranferTaller);
+			bt_iniciarLavado.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) { 
+					// crear el thread
+					setVisible(false);
+					op_agua.setSelectedIndex(0);
+					op_lavado.setSelectedIndex(0);
+					op_cristales.setSelectedIndex(0);
+					op_llantas.setSelectedIndex(0);
+					GUI_Lavadero.getInstance().setVisible(true);
+					
 				}
 			});
 		}
