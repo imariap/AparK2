@@ -53,8 +53,9 @@ class GUI_MostrarFacturas{
 	private JLabel txt_nombrepieza;
 	private JLabel txt_preciopieza;
 	
-	private JButton bt_guardar;
-	private JButton bt_cancelar;
+	private JButton bt_anterior;
+	private JButton bt_siguiente;
+	private JButton bt_volver;
 	private JFrame frame;
 	private JScrollPane scrollPane;
 	
@@ -63,6 +64,7 @@ class GUI_MostrarFacturas{
 	private ArrayList<Pieza> piezas;
 	private ArrayList<Factura> facturas;
 	private DefaultListModel<String> model;
+	private int index;
 	
 	private static GUI_MostrarFacturas instance = null;
 	
@@ -70,6 +72,7 @@ class GUI_MostrarFacturas{
 		piezas = new ArrayList<Pieza>();
 		model = new DefaultListModel<String>();
 		listaPiezas = new JList<String>(model);
+		index = 0;
 		create();		
 	}
 	
@@ -122,9 +125,9 @@ class GUI_MostrarFacturas{
     	txt_total = new JLabel();
     	txt_nombrereparacion = new JLabel();
     	
-    	bt_guardar = new JButton("Guardar");
-		bt_cancelar = new JButton("Cancelar");
-				
+    	bt_anterior = new JButton("Anterior");
+		bt_siguiente = new JButton("Siguiente");
+		bt_volver = new JButton("Volver");
 		
 		gbc.gridx = 0; gbc.gridy = 0;
 		root.add(lb_nombre, gbc);
@@ -137,8 +140,8 @@ class GUI_MostrarFacturas{
 		
 		gbc.gridx = 2; gbc.gridy = 1;
 		scrollPane = new JScrollPane();
+		listaPiezas.setPreferredSize(new Dimension(150, 800));		
 		scrollPane.setViewportView(listaPiezas);
-		scrollPane.setPreferredSize(new Dimension(150, 800));
 		root.add(scrollPane, gbc);
 		
 		gbc.gridx = 0; gbc.gridy = 2;
@@ -172,28 +175,78 @@ class GUI_MostrarFacturas{
 		root.add(txt_total, gbc);
 		
 		gbc.gridx = 0; gbc.gridy = 7;
-		root.add(bt_guardar, gbc);
+		root.add(bt_anterior, gbc);
 		
 		gbc.gridx = 1; gbc.gridy = 7;
-		root.add(bt_cancelar, gbc);
+		root.add(bt_siguiente, gbc);
 		
-		bt_guardar.addActionListener(new ActionListener() {
+		gbc.gridx = 2; gbc.gridy = 7;
+		root.add(bt_volver, gbc);
+		
+		bt_anterior.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				transfer.addFactura(txt_nombre.getText(), Double.parseDouble(txt_importe.getText()), Double.parseDouble(txt_manodeobra.getText()), Integer.parseInt(txt_ivaporc.getText()), Double.parseDouble(txt_iva.getText()), Double.parseDouble(txt_total.getText()), piezas);
-				Gestor_de_Taller.getInstance().ModificarFichaVehiculo(transfer);
+				index--;
+				bt_siguiente.setEnabled(true);
+				
+				txt_importe.setText(String.valueOf(facturas.get(index).getImporte()) + " €");
+				txt_iva.setText(String.format("%.2f", facturas.get(index).getIVA()) + " €");  
+				txt_ivaporc.setText(String.valueOf(facturas.get(index).getIVAPorc()) + " %");
+				txt_manodeobra.setText(String.valueOf(facturas.get(index).getManoDeObra()) + " €");
+				txt_nombre.setText(String.valueOf(facturas.get(index).getNombre()));
+				txt_total.setText(String.valueOf(facturas.get(index).getTOTAL()) + " €");
+				model.removeAllElements();
+				for(int i = 0; i < facturas.get(index).getPiezas().size(); i++){
+					model.addElement(facturas.get(index).getPiezas().get(i).getNombre() + ":  " + facturas.get(index).getPiezas().get(i).getPrecio() + " €");
+				}					
+				
+				if(index == 0){
+					bt_anterior.setEnabled(false);
+				}
+				
+				
+				root.revalidate();
+				root.repaint();
 			}
 		});
 		
-		bt_cancelar.addActionListener(new ActionListener() {
+		bt_siguiente.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				index++;
+				bt_anterior.setEnabled(true);
+				
+				txt_importe.setText(String.valueOf(facturas.get(index).getImporte()) + " €");
+				txt_iva.setText(String.format("%.2f", facturas.get(index).getIVA()) + " €");  
+				txt_ivaporc.setText(String.valueOf(facturas.get(index).getIVAPorc()) + " %");
+				txt_manodeobra.setText(String.valueOf(facturas.get(index).getManoDeObra()) + " €");
+				txt_nombre.setText(String.valueOf(facturas.get(index).getNombre()));
+				txt_total.setText(String.valueOf(facturas.get(index).getTOTAL()) + " €");
+				model.removeAllElements();
+				for(int i = 0; i < facturas.get(index).getPiezas().size(); i++){
+					model.addElement(facturas.get(index).getPiezas().get(i).getNombre() + ":  " + facturas.get(index).getPiezas().get(i).getPrecio() + " €");
+				}				
+				
+				if(index == facturas.size() - 1){
+					bt_siguiente.setEnabled(false);
+				}
+				
+				root.revalidate();
+				root.repaint();
+			}
+		});
+		
+		bt_volver.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				setVisible(false);
-				GUI_Taller.getInstance().setVisible(true);
+				GUI_ModificarFicha.getInstance().setVisible(true);
 			}
 		});
 		
@@ -210,16 +263,24 @@ class GUI_MostrarFacturas{
 	
 	public void actualizaDatos(ArrayList<Factura> facturas){		
 		this.facturas = facturas;
+		index = 0;
 		
 		txt_importe.setText(String.valueOf(facturas.get(0).getImporte()) + " €");
 		txt_iva.setText(String.format("%.2f", facturas.get(0).getIVA()) + " €");  
 		txt_ivaporc.setText(String.valueOf(facturas.get(0).getIVAPorc()) + " %");
 		txt_manodeobra.setText(String.valueOf(facturas.get(0).getManoDeObra()) + " €");
-		txt_nombre.setText(String.valueOf(facturas.get(0).getNombre()) + " €");
+		txt_nombre.setText(String.valueOf(facturas.get(0).getNombre()));
 		txt_total.setText(String.valueOf(facturas.get(0).getTOTAL()) + " €");
+		model.removeAllElements();
 		for(int i = 0; i < facturas.get(0).getPiezas().size(); i++){
 			model.addElement(facturas.get(0).getPiezas().get(i).getNombre() + ":  " + facturas.get(0).getPiezas().get(i).getPrecio() + " €");
 		}				
+		
+		bt_anterior.setEnabled(false);
+		
+		if(facturas.size() == 1){
+			bt_siguiente.setEnabled(false);
+		}
 		
 		root.revalidate();
 		root.repaint();
