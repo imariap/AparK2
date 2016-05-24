@@ -167,28 +167,7 @@ public class TransferTaller implements Transfer, Serializable {
 		Facturas.add(fact);
 	}
 	
-	public class Reparaciones  implements Serializable {
-		private String Reparacion;
-		private double Precio;
-		
-		public String getReparacion(){
-			return Reparacion;
-		}
-		
-		public double getPrecio(){
-			return Precio;
-		}
-		
-		public void setReparacion(String r){
-			Reparacion = r;
-		}
-		
-		public void setPrecio(double x){
-			Precio = x;
-		}
-	}
-	
-	public static class Pieza{
+	public static class Pieza implements Serializable{
 		String Nombre;
 		double Precio;
 		

@@ -119,7 +119,6 @@ public class ALMACEN{
 		else{
 			datosTaller.add(transfer);
 		}
-		
 		// end-user-code	
 	}
 

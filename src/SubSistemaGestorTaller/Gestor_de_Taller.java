@@ -49,13 +49,13 @@ public class Gestor_de_Taller {
 				TransferTaller resultado = ServicioAplicacionTaller.getInstance().ComprobarMatricula(tranferTaller);
 				if (resultado != null){
 					// Comprobación correcta
-					BuscarParaModificarFicha.getInstance().setVisible(false);
-					ModificarFicha.getInstance().setVisible(true);
-					ModificarFicha.getInstance().actualizaDatos(resultado);
+					GUI_BuscarParaModificarFicha.getInstance().setVisible(false);
+					GUI_ModificarFicha.getInstance().setVisible(true);
+					GUI_ModificarFicha.getInstance().actualizaDatos(resultado);
 				}
 				else{
 					//Incorrecto
-					BuscarParaModificarFicha.getInstance().mostrarAlerta("¡Matrícula no encontrada!");
+					GUI_BuscarParaModificarFicha.getInstance().mostrarAlerta("¡Matrícula no encontrada!");
 				}
 				
 				break;
@@ -74,13 +74,13 @@ public class Gestor_de_Taller {
 		TransferTaller resultado = ServicioAplicacionTaller.getInstance().ComprobarMatricula(tranferTaller);
 		if (resultado != null){
 			// Comprobación correcta
-			BuscarParaCrearFactura.getInstance().setVisible(false);
-			CrearFactura.getInstance().setVisible(true);
-			CrearFactura.getInstance().setTransfer(resultado);
+			GUI_BuscarParaCrearFactura.getInstance().setVisible(false);
+			GUI_CrearFactura.getInstance().setVisible(true);
+			GUI_CrearFactura.getInstance().setTransfer(resultado);
 		}
 		else{
 			//Incorrecto
-			BuscarParaModificarFicha.getInstance().mostrarAlerta("¡Matrícula no encontrada!");
+			GUI_BuscarParaModificarFicha.getInstance().mostrarAlerta("¡Matrícula no encontrada!");
 		}
 		// end-user-code
 	}
@@ -162,10 +162,21 @@ public class Gestor_de_Taller {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void imprimeFactura() {
+	public void imprimeFactura(TransferTaller datos) {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
-
+		TransferTaller tranferTaller = (TransferTaller) datos; 
+		TransferTaller resultado = ServicioAplicacionTaller.getInstance().ComprobarMatricula(tranferTaller);
+		if (resultado.getFacturas().size() == 0){
+			// Sin facturas
+			GUI_ModificarFicha.getInstance().mostrarAlerta("El cliente no tiene facturas.");
+		}
+		else{
+			// Muestra facturas
+			GUI_ModificarFicha.getInstance().setVisible(false);			
+			GUI_MostrarFacturas.getInstance().actualizaDatos(resultado.getFacturas());
+		}
+		
 		// end-user-code
 	}
 }
