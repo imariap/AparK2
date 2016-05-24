@@ -284,6 +284,7 @@ class ModificarFicha{
 				transfer.setTelefono(txt_telefono.getText());
 				Gestor_de_Taller.getInstance().ModificarFichaVehiculo(transfer);
 				setVisible(false);
+				limpiarCampos();
 				MenuPrincipal.getInstance().setVisible(true);
 			}
 		});
@@ -294,6 +295,7 @@ class ModificarFicha{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				setVisible(false);
+				limpiarCampos();
 				GUI_Taller.getInstance().setVisible(true);
 			}
 		});
@@ -314,6 +316,16 @@ class ModificarFicha{
 	public void setVisible(boolean x){
 		this.frame.setVisible(x);
 	}
+
+	public void limpiarCampos(){
+		 txt_nombre.setText("");
+		 txt_apellidos.setText("");
+		 txt_dni.setText("");
+		 txt_telefono.setText("");
+		 txt_matricula.setText("");
+		 txt_observaciones.setText("");
+	}
+
 }
 
 class BuscarParaModificarFicha{
@@ -378,6 +390,7 @@ class BuscarParaModificarFicha{
 			 * */
 			TransferTaller tranferTaller = new TransferTaller(txt_matricula.getText());
 			Gestor_de_Taller.getInstance().action(1, tranferTaller);
+			txt_matricula.setText("");
 			}
 		});
 	}
@@ -490,6 +503,7 @@ class CrearFactura{
 			         piezas.add(p);	
 			         txt_importe.setText(String.valueOf(Double.parseDouble(txt_importe.getText()) + p.getPrecio() ));
 			         model.addElement("Pieza: " + txt_nombrepieza.getText() + " Precio: " + txt_preciopieza.getText());		
+			         txt_iva.setText(String.valueOf(Double.parseDouble(txt_importe.getText()) * Integer.parseInt(txt_ivaporc.getText())/100));
 			         
 			         miPanel.revalidate();
 			         miPanel.repaint();
@@ -669,6 +683,7 @@ class BuscarParaCrearFactura{
 			 * */
 			TransferTaller tranferTaller = new TransferTaller(txt_matricula.getText());
 			Gestor_de_Taller.getInstance().FacturarServicioPrestado(tranferTaller);
+			txt_matricula.setText("");
 			}
 		});
 	}
