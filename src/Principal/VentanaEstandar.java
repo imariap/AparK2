@@ -2,6 +2,7 @@ package Principal;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -103,6 +104,7 @@ public class VentanaEstandar extends JFrame{
 		
 		ImageIcon ii_inicio = new ImageIcon("inicio.png");
 		JButton b1 = botonNaranja(ii_inicio);
+		b1.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		b1.addActionListener(new ActionListener() {
 			
 			@Override
@@ -116,6 +118,7 @@ public class VentanaEstandar extends JFrame{
 		
 		ImageIcon ii_taller = new ImageIcon("taller.png");
 		JButton b2 = botonNaranja(ii_taller);
+		b2.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		b2.addActionListener(new ActionListener() {
 			
 			@Override
@@ -129,7 +132,7 @@ public class VentanaEstandar extends JFrame{
 		
 		ImageIcon ii_lavadero = new ImageIcon("lavadero.png");
 		JButton b3 = botonNaranja(ii_lavadero);
-		
+		b3.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		b3.addActionListener(new ActionListener() {
 			
 			@Override
@@ -143,6 +146,7 @@ public class VentanaEstandar extends JFrame{
 		
 		ImageIcon ii_salir = new ImageIcon("salir.png");
 		JButton b4 = botonNaranja(ii_salir);
+		b4.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		b4.addActionListener(new ActionListener() {
 			
 			@Override
