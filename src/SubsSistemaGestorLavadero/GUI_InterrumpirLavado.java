@@ -76,7 +76,7 @@ public class GUI_InterrumpirLavado {
 			root.add(bt, gbc);
 			
 			crearListener();
-			frame = new VentanaEstandar(root);
+			frame = new VentanaEstandar(root, "iconoLavadero.png");
 		}
 		public void crearListener(){
 			bt.addActionListener(new ActionListener() {

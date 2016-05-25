@@ -132,7 +132,7 @@ public class GUI_SeleccionarTipo {
 		gbc.gridy = 4;
 		root.add(bt_iniciarLavado, gbc);
 
-		frame = new VentanaEstandar(root);
+		frame = new VentanaEstandar(root, "iconoLavadero.png");
 
 	}
 

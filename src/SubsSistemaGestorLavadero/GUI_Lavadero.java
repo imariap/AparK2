@@ -81,7 +81,7 @@ public class GUI_Lavadero {
 		
 
 		// Creamos la instancia de ventana estandar pasandole como contenido nuestro panel central
-		frame = new VentanaEstandar(miPanel);
+		frame = new VentanaEstandar(miPanel, "iconoLavadero.png");
 	}
 	
 	public void crearListeners(){

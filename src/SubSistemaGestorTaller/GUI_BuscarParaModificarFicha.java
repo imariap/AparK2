@@ -65,7 +65,7 @@ class GUI_BuscarParaModificarFicha{
 		gbc.gridx = 0; gbc.gridy = 2;
 		miPanel.add(bt_siguiente, gbc);
 
-		frame = new VentanaEstandar(miPanel);
+		frame = new VentanaEstandar(miPanel, "iconoTaller.png");
 		
 	}
 	public void crearListener(){

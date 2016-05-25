@@ -276,7 +276,7 @@ class GUI_CrearFactura{
 			}
 		});
 		
-		frame = new VentanaEstandar(miPanel);
+		frame = new VentanaEstandar(miPanel, "iconoTaller.png");
 	}
 	
 	public void setVisible(boolean x){

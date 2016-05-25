@@ -79,7 +79,7 @@ public class GUI_FinalizarLavado {
 		root.add(bt_efectivo, gbc);
 
 		crearListener();
-		frame = new VentanaEstandar(root);
+		frame = new VentanaEstandar(root, "iconoLavadero.png");
 
 	}
 		public void crearListener(){

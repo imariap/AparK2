@@ -167,7 +167,7 @@ class GUI_IngresoVehiculo{
 			}
 		});
 				
-		frame = new VentanaEstandar(miPanel);
+		frame = new VentanaEstandar(miPanel, "iconoTaller.png");
 	}
 	
 	public void actualizaDatos(TransferTaller datos){

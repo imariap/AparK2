@@ -195,7 +195,7 @@ class GUI_ModificarFicha{
 			}
 		});
 		
-		frame = new VentanaEstandar(miPanel);
+		frame = new VentanaEstandar(miPanel, "iconoTaller.png");
 	}
 	
 	public void actualizaDatos(TransferTaller datos){

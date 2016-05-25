@@ -18,7 +18,7 @@ import SubSistemaGestorTaller.GUI_Taller;
 public class VentanaEstandar extends JFrame{
 	  private Color colorNaraja = new Color(230, 136, 1);
 	   
-      public VentanaEstandar(JPanel miPanel) {
+      public VentanaEstandar(JPanel miPanel, String icono) {
     	  
          super ("AparK2");
          
@@ -54,7 +54,7 @@ public class VentanaEstandar extends JFrame{
          panelOpciones.add(panelOpcionesBotones(), BorderLayout.CENTER);
          
          // Añadimos al panel central el logo principal y el panel especifico para cada ventana (miPanel)
-         panelCentral.add(panelLogoPrincipal(), BorderLayout.NORTH);
+         panelCentral.add(panelLogoPrincipal(icono), BorderLayout.NORTH);
          panelCentral.add(miPanel, BorderLayout.CENTER); //********************************************************** PANEL PERSONALIZADO
          
          // Añadimos el panel de opciones al contenedor
@@ -83,11 +83,13 @@ public class VentanaEstandar extends JFrame{
          this.setVisible(true);
       }
       
-	JPanel panelLogoPrincipal() {
+	JPanel panelLogoPrincipal(String icono) {
 
 		JPanel jp = new JPanel(new BorderLayout());
 		jp.setBackground(Color.WHITE);
-		JLabel lb = new JLabel(new ImageIcon("logoPrincipal.png"));		
+		JLabel lb = new JLabel(new ImageIcon("logoPrincipal.png"));	
+		JLabel lbI = new JLabel(new ImageIcon(icono));	
+		jp.add(lbI, BorderLayout.WEST);
 		jp.add(lb, BorderLayout.EAST);
 
 		return jp;

@@ -252,7 +252,7 @@ class GUI_MostrarFacturas{
 			}
 		});
 		
-		frame = new VentanaEstandar(root);
+		frame = new VentanaEstandar(root, "iconoTaller.png");
 	}
 	
 	public void setVisible(boolean x){
