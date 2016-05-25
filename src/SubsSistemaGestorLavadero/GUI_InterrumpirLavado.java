@@ -33,6 +33,15 @@ public class GUI_InterrumpirLavado {
 		private JButton bt;
 		private JFrame frame;
 		
+		public JProgressBar getBar() {
+			return bar;
+		}
+
+		public void setBar(JProgressBar bar) {
+			this.bar = bar;
+		}
+		
+		
 		public GUI_InterrumpirLavado(){
 			create();
 		}
@@ -74,6 +83,7 @@ public class GUI_InterrumpirLavado {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				GUI_SeleccionarTipo.getInstance().fin();
 				mostrarAlerta("Lavado cancelado con éxito");
 				setVisible(false);
 				GUI_Lavadero.getInstance().setVisible(true);
