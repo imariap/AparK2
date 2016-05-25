@@ -39,14 +39,6 @@ public class GUI_SeleccionarTipo {
 	JButton bt_iniciarLavado;
 	private SwingWorker worker;
 
-	public SwingWorker getWorker() {
-		return worker;
-	}
-
-	public void setWorker(SwingWorker worker) {
-		this.worker = worker;
-	}
-
 	public GUI_SeleccionarTipo() {
 		create();
 	}
@@ -150,20 +142,20 @@ public class GUI_SeleccionarTipo {
 				op_cristales.setSelectedIndex(0);
 				op_llantas.setSelectedIndex(0);
 				GUI_Lavadero.getInstance().setVisible(true);
-
 				//
 				worker = new SwingWorker() {
 
 					@Override
-					protected Object doInBackground() throws Exception {
+					protected Object doInBackground() {
+						GUI_InterrumpirLavado.getInstance().setVisible(false);
 						GUI_InterrumpirLavado.getInstance().getBar().setValue(0);
-						while (GUI_InterrumpirLavado.getInstance().getBar().getValue() < 100) {
+						while (GUI_InterrumpirLavado.getInstance().getBar().getValue() < 100 && !isCancelled()) {
 							GUI_InterrumpirLavado.getInstance().getBar()
 									.setValue((int) (GUI_InterrumpirLavado.getInstance().getBar().getValue() + 1));
-							GUI_InterrumpirLavado.getInstance().getBar().repaint();
+							
 							try {
 								Thread.sleep(100);
-							} catch (InterruptedException e) {
+							} catch (Exception e) {
 								//e.printStackTrace();
 							}
 						}
@@ -176,6 +168,7 @@ public class GUI_SeleccionarTipo {
 	}
 public void fin(){
 	worker.cancel(true);
+	GUI_InterrumpirLavado.getInstance().getBar().setValue(0);
 }
 	public void setVisible(boolean x) {
 		this.frame.setVisible(x);

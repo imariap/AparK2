@@ -95,8 +95,15 @@ public class GUI_Lavadero {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				frame.setVisible(false);;
-				GUI_InterrumpirLavado.getInstance().setVisible(true);
+				frame.setVisible(false);
+				GUI_InterrumpirLavado.getInstance().setVisible(false);
+				if(GUI_InterrumpirLavado.getInstance().getBar().getValue() != 0)
+					GUI_InterrumpirLavado.getInstance().setVisible(true);
+				else{
+					frame.setVisible(true);				
+					GUI_InterrumpirLavado.getInstance().mostrarAlerta("No hay ningún lavado en curso");
+					}
+				
 			}
 		});
 	
