@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.peer.LightweightPeer;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -35,10 +36,15 @@ public class VentanaEstandar extends JFrame{
          panelOpciones.setBackground(colorNaraja);
          panelOpciones.setBorder(BorderFactory.createMatteBorder(2, 2, 0, 2, colorNaraja));
 
-         
          // Panel central (derecho)
          JPanel panelCentral = new JPanel(new BorderLayout());
          panelCentral.setBackground(Color.WHITE);
+         panelCentral.setBorder(BorderFactory.createMatteBorder(2,2,2,2, colorNaraja));
+         
+         JPanel f = new JPanel(new BorderLayout());
+         f.setBackground(Color.WHITE);
+         f.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.WHITE));
+         f.add(panelCentral);
          
          // Label que contiene el logo en el panel de opciones (izquierdo)
          JLabel labelLogoOpciones = new JLabel(new ImageIcon("logoOpciones.png"));
@@ -69,7 +75,7 @@ public class VentanaEstandar extends JFrame{
          constraints.weightx = 2.0;
          constraints.weighty = 1.0;
          constraints.fill = GridBagConstraints.BOTH;
-         this.getContentPane().add (panelCentral, constraints); 
+         this.getContentPane().add (f, constraints); 
          
          // Tamaño, localizacion y visibilidad
          this.setSize(1000, 550);

@@ -94,45 +94,50 @@ class GUI_ModificarFicha{
 		bt_guardar = new JButton("Guardar");
 		bt_cancelar = new JButton("Cancelar");
 		
+		gbc.anchor = GridBagConstraints.EAST;
 		
 		gbc.gridx = 0; gbc.gridy = 0;
 		miPanel.add(lb_nombre, gbc);
 		
-		gbc.gridx = 1; gbc.gridy = 0;
-		miPanel.add(txt_nombre, gbc);
-		
 		gbc.gridx = 0; gbc.gridy = 1;
 		miPanel.add(lb_apellidos, gbc);
-		
-		gbc.gridx = 1; gbc.gridy = 1;
-		miPanel.add(txt_apellidos, gbc);
 		
 		gbc.gridx = 0; gbc.gridy = 2;
 		miPanel.add(lb_dni, gbc);
 		
-		gbc.gridx = 1; gbc.gridy = 2;
-		miPanel.add(txt_dni, gbc);
-		
 		gbc.gridx = 0; gbc.gridy = 3;
 		miPanel.add(lb_matricula, gbc);
-		
-		gbc.gridx = 1; gbc.gridy = 3;
-		miPanel.add(txt_matricula, gbc);
 		
 		gbc.gridx = 0; gbc.gridy = 4;
 		miPanel.add(lb_telefono, gbc);
 		
-		gbc.gridx = 1; gbc.gridy = 4;
-		miPanel.add(txt_telefono, gbc);
-		
 		gbc.gridx = 0; gbc.gridy = 5;
 		miPanel.add(lb_observaciones, gbc);
+		
+		gbc.gridx = 0; gbc.gridy = 6;
+		miPanel.add(lb_facturas, gbc);
+		
+		gbc.anchor = GridBagConstraints.WEST;
+		
+		gbc.gridx = 1; gbc.gridy = 0;
+		miPanel.add(txt_nombre, gbc);
+				
+		gbc.gridx = 1; gbc.gridy = 1;
+		miPanel.add(txt_apellidos, gbc);
+		
+		gbc.gridx = 1; gbc.gridy = 2;
+		miPanel.add(txt_dni, gbc);
+		
+		gbc.gridx = 1; gbc.gridy = 3;
+		miPanel.add(txt_matricula, gbc);
+		
+		gbc.gridx = 1; gbc.gridy = 4;
+		miPanel.add(txt_telefono, gbc);
 		
 		gbc.gridx = 1; gbc.gridy = 5;
 		miPanel.add(txt_observaciones, gbc);
 		
-		gbc.gridx = 0; gbc.gridy = 6;
-		miPanel.add(lb_facturas, gbc);
+		gbc.anchor = GridBagConstraints.CENTER;
 		
 		gbc.gridx = 1; gbc.gridy = 6;
 		miPanel.add(bt_verFacturas, gbc);

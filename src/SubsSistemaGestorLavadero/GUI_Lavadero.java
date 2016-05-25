@@ -4,6 +4,7 @@
 package SubsSistemaGestorLavadero;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -15,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Principal.Empleado;
+import Principal.JBotonMenu;
 import Principal.VentanaEstandar;
 /** 
  * <!-- begin-UML-doc -->
@@ -30,9 +32,9 @@ public class GUI_Lavadero {
 	 */
 	private Empleado empleado;
 	private static GUI_Lavadero instance = null;
-	private JButton bt_iniciarLavado;
-	private JButton bt_interrumpirLavado;
-	private JButton bt_finalizarLavado;
+	private JBotonMenu bt_iniciarLavado;
+	private JBotonMenu bt_interrumpirLavado;
+	private JBotonMenu bt_finalizarLavado;
 	private JFrame frame;
 	
 	public GUI_Lavadero() {
@@ -57,9 +59,12 @@ public class GUI_Lavadero {
         // Estilo del JPanel
 		miPanel.setBackground(Color.WHITE);
 		
-		bt_iniciarLavado = new JButton("Iniciar lavado");
-		bt_interrumpirLavado = new JButton("Interrumpir lavado");
-		bt_finalizarLavado = new JButton("Finalizar lavado");
+		bt_iniciarLavado = new JBotonMenu("Iniciar lavado");
+		bt_iniciarLavado.setPreferredSize(new Dimension(200, 50));
+		bt_interrumpirLavado = new JBotonMenu("Interrumpir lavado");
+		bt_interrumpirLavado.setPreferredSize(new Dimension(200, 50));
+		bt_finalizarLavado = new JBotonMenu("Finalizar lavado");
+		bt_finalizarLavado.setPreferredSize(new Dimension(200, 50));
 		
 		crearListeners();
 		

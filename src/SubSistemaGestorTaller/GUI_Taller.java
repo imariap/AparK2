@@ -4,6 +4,7 @@
 package SubSistemaGestorTaller;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -48,14 +49,15 @@ import javax.swing.JPanel;
  * ModificarFicha
  */
 import Principal.Empleado;
+import Principal.JBotonMenu;
 import Principal.VentanaEstandar;
 
 public class GUI_Taller{
 
 	private static GUI_Taller instance = null;
-	private JButton bt_registrarIngreso;
-	private JButton bt_modificarFicha;
-	private JButton bt_crearFactura;
+	private JBotonMenu bt_registrarIngreso;
+	private JBotonMenu bt_modificarFicha;
+	private JBotonMenu bt_crearFactura;
 	private JFrame frame;
 	
 	public GUI_Taller(){
@@ -80,9 +82,12 @@ public class GUI_Taller{
         // Estilo del JPanel
 		miPanel.setBackground(Color.WHITE);
 		
-		bt_registrarIngreso = new JButton("Registrar ingreso de vehiculo");
-		bt_modificarFicha = new JButton("Ver/Modificar ficha de vehiculo");
-		bt_crearFactura = new JButton("Facturar servicio prestado");
+		bt_registrarIngreso = new JBotonMenu("Registrar ingreso de vehiculo");
+		bt_registrarIngreso.setPreferredSize(new Dimension(200, 50));
+		bt_modificarFicha = new JBotonMenu("Ver/Modificar ficha de vehiculo");
+		bt_modificarFicha.setPreferredSize(new Dimension(200, 50));
+		bt_crearFactura = new JBotonMenu("Facturar servicio prestado");
+		bt_crearFactura.setPreferredSize(new Dimension(200, 50));
 		
 		crearListeners();
 		
