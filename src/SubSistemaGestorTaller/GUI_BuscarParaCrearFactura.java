@@ -67,6 +67,8 @@ class GUI_BuscarParaCrearFactura{
 
 		frame = new VentanaEstandar(miPanel, "iconoTaller.png");
 		
+		frame.getRootPane().setDefaultButton(bt_siguiente);
+		
 	}
 	public void crearListener(){
 		bt_siguiente.addActionListener(new ActionListener() {

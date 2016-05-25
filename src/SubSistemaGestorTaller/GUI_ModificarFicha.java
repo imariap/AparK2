@@ -196,6 +196,8 @@ class GUI_ModificarFicha{
 		});
 		
 		frame = new VentanaEstandar(miPanel, "iconoTaller.png");
+		
+		frame.getRootPane().setDefaultButton(bt_guardar);
 	}
 	
 	public void actualizaDatos(TransferTaller datos){

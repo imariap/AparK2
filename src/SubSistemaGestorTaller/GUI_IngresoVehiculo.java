@@ -168,6 +168,8 @@ class GUI_IngresoVehiculo{
 		});
 				
 		frame = new VentanaEstandar(miPanel, "iconoTaller.png");
+		
+		frame.getRootPane().setDefaultButton(bt_guardar);
 	}
 	
 	public void actualizaDatos(TransferTaller datos){

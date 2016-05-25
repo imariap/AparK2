@@ -277,6 +277,8 @@ class GUI_CrearFactura{
 		});
 		
 		frame = new VentanaEstandar(miPanel, "iconoTaller.png");
+		
+		frame.getRootPane().setDefaultButton(bt_guardar);
 	}
 	
 	public void setVisible(boolean x){

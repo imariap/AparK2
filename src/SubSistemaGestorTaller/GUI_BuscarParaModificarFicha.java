@@ -63,9 +63,11 @@ class GUI_BuscarParaModificarFicha{
 		miPanel.add(txt_matricula, gbc);
 		
 		gbc.gridx = 0; gbc.gridy = 2;
-		miPanel.add(bt_siguiente, gbc);
+		miPanel.add(bt_siguiente, gbc);		
 
 		frame = new VentanaEstandar(miPanel, "iconoTaller.png");
+		
+		frame.getRootPane().setDefaultButton(bt_siguiente);
 		
 	}
 	public void crearListener(){
