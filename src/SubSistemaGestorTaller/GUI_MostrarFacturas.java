@@ -144,6 +144,8 @@ class GUI_MostrarFacturas{
 		scrollPane.setViewportView(listaPiezas);
 		root.add(scrollPane, gbc);
 		
+		gbc.anchor = GridBagConstraints.EAST;
+		
 		gbc.gridx = 0; gbc.gridy = 2;
 		root.add(lb_importe, gbc);
 		

@@ -182,58 +182,75 @@ class GUI_CrearFactura{
     	bt_guardar = new JButton("Guardar");
 		bt_cancelar = new JButton("Cancelar");
 				
-		
+		gbc.anchor = GridBagConstraints.EAST;
 		gbc.gridx = 0; gbc.gridy = 0;
 		miPanel.add(lb_nombre, gbc);
 		
+		gbc.anchor = GridBagConstraints.WEST;
 		gbc.gridx = 1; gbc.gridy = 0;
 		miPanel.add(txt_nombre, gbc);
 		
+		gbc.anchor = GridBagConstraints.EAST;
 		gbc.gridx = 0; gbc.gridy = 1;
 		miPanel.add(lb_piezas, gbc);
-		
+
+		gbc.anchor = GridBagConstraints.WEST;
 		gbc.gridx = 1; gbc.gridy = 2;
 		miPanel.add(bt_anadirPieza, gbc);
-		
+
+		gbc.anchor = GridBagConstraints.WEST;
 		gbc.gridx = 1; gbc.gridy = 1;
 		scrollPane = new JScrollPane();
 		scrollPane.setViewportView(listaPiezas);
 		scrollPane.setPreferredSize(new Dimension(150, 80));
         miPanel.add(scrollPane, gbc);
 		
+        gbc.anchor = GridBagConstraints.EAST;
 		gbc.gridx = 0; gbc.gridy = 3;
 		miPanel.add(lb_importe, gbc);
-		
+
+		gbc.anchor = GridBagConstraints.WEST;
 		gbc.gridx = 1; gbc.gridy = 3;
 		miPanel.add(txt_importe, gbc);
 		
+		gbc.anchor = GridBagConstraints.EAST;
 		gbc.gridx = 0; gbc.gridy = 4;
 		miPanel.add(lb_manodeobra, gbc);
-		
+
+		gbc.anchor = GridBagConstraints.WEST;
 		gbc.gridx = 1; gbc.gridy = 4;
 		miPanel.add(txt_manodeobra, gbc);
 		
+		gbc.anchor = GridBagConstraints.EAST;
 		gbc.gridx = 0; gbc.gridy = 5;
 		miPanel.add(lb_ivaporc, gbc);
-		
+
+		gbc.anchor = GridBagConstraints.WEST;
 		gbc.gridx = 1; gbc.gridy = 5;
 		miPanel.add(txt_ivaporc, gbc);
 		
+		gbc.anchor = GridBagConstraints.EAST;
 		gbc.gridx = 0; gbc.gridy = 6;
 		miPanel.add(lb_iva, gbc);
-		
+
+		gbc.anchor = GridBagConstraints.WEST;
 		gbc.gridx = 1; gbc.gridy = 6;
 		miPanel.add(txt_iva, gbc);
 		
+		gbc.anchor = GridBagConstraints.EAST;
 		gbc.gridx = 0; gbc.gridy = 7;
 		miPanel.add(lb_total, gbc);
-		
+
+		gbc.anchor = GridBagConstraints.WEST;
 		gbc.gridx = 1; gbc.gridy = 7;
 		miPanel.add(txt_total, gbc);
 		
+
+		gbc.anchor = GridBagConstraints.CENTER;
 		gbc.gridx = 0; gbc.gridy = 8;
 		miPanel.add(bt_guardar, gbc);
-		
+
+		gbc.anchor = GridBagConstraints.CENTER;
 		gbc.gridx = 1; gbc.gridy = 8;
 		miPanel.add(bt_cancelar, gbc);
 		

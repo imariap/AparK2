@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 
+import Principal.JMyComboBox;
 import Principal.TransferTaller;
 import Principal.VentanaEstandar;
 import SubSistemaGestorTaller.Gestor_de_Taller;
@@ -31,10 +32,10 @@ public class GUI_SeleccionarTipo {
 	private JLabel lb_tipoLavado;
 	private JLabel lb_cristales;
 	private JLabel lb_Llantas;
-	private JComboBox<String> op_agua;
-	private JComboBox<String> op_lavado;
-	private JComboBox<String> op_cristales;
-	private JComboBox<String> op_llantas;
+	private JMyComboBox op_agua;
+	private JMyComboBox op_lavado;
+	private JMyComboBox op_cristales;
+	private JMyComboBox op_llantas;
 	private JFrame frame;
 	JButton bt_iniciarLavado;
 	private SwingWorker worker;
@@ -65,13 +66,13 @@ public class GUI_SeleccionarTipo {
 		lb_cristales = new JLabel("Cristales");
 		lb_Llantas = new JLabel("Llantas");
 
-		op_agua = new JComboBox<String>();
+		op_agua = new JMyComboBox(null);
 		op_agua.setPreferredSize(new Dimension(150, 24));
-		op_lavado = new JComboBox<String>();
+		op_lavado = new JMyComboBox(null);
 		op_lavado.setPreferredSize(new Dimension(150, 24));
-		op_cristales = new JComboBox<String>();
+		op_cristales = new JMyComboBox(null);
 		op_cristales.setPreferredSize(new Dimension(150, 24));
-		op_llantas = new JComboBox<String>();
+		op_llantas = new JMyComboBox(null);
 		op_llantas.setPreferredSize(new Dimension(150, 24));
 
 		op_agua.addItem("Agua fría");
@@ -90,6 +91,9 @@ public class GUI_SeleccionarTipo {
 
 		crearListener();
 
+		
+		gbc.anchor = GridBagConstraints.EAST;
+		
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		root.add(lb_tipoAgua, gbc);
@@ -106,6 +110,8 @@ public class GUI_SeleccionarTipo {
 		gbc.gridy = 3;
 		root.add(lb_Llantas, gbc);
 
+		gbc.anchor = GridBagConstraints.CENTER;
+		
 		gbc.gridx = 1;
 		gbc.gridy = 0;
 		root.add(op_agua, gbc);
