@@ -1,5 +1,6 @@
 package Principal;
 
+import Exceptions.MatriculaIncorrectaException;
 import SubSistemaGestorTaller.Gestor_de_Taller;
 
 /** 
@@ -30,13 +31,51 @@ public class ServicioAplicacionTaller {
 		return instance;
 	}
 	
-	public TransferTaller ComprobarMatricula(TransferTaller datos) {
+	public TransferTaller ComprobarMatricula(TransferTaller datos) throws MatriculaIncorrectaException { 
+		// Comprobaciones para la matrícula
+		if(datos.getMatricula().length() != 7){
+			throw new MatriculaIncorrectaException();
+		}
+		else if(!esNumero(datos.getMatricula().substring(0, 4))  ||  !sonLetras(datos.getMatricula().substring(4, 7))){
+			throw new MatriculaIncorrectaException();
+		}
+		
 		TransferTaller transfer = dao.SelectObtenerDatosAModificar(datos);		
 		return transfer;
 	}	
 	
-	public void GuardarFicha(TransferTaller datos) {
+	public void GuardarFicha(TransferTaller datos) throws MatriculaIncorrectaException {
+		// Comprobaciones para la matrícula
+		if(datos.getMatricula().length() != 7){
+			throw new MatriculaIncorrectaException();
+		}
+		else if(!esNumero(datos.getMatricula().substring(0, 4))  ||  !sonLetras(datos.getMatricula().substring(4, 7))){
+			throw new MatriculaIncorrectaException();
+		}
+		
 		dao.InsertDatosYaModificados(datos);
 	}
 	
+	private boolean esNumero(String texto){
+		try {
+	            Integer.parseInt(texto);
+	            return true;
+	    } catch (NumberFormatException nfe) {
+	    	
+	    }
+	    return false;
+	}
+	
+	public boolean sonLetras(String name) {
+	    char[] chars = name.toCharArray();
+
+	    for (char c : chars) {
+	        if(!Character.isLetter(c)) {
+	            return false;
+	        }
+	    }
+
+	    return true;
+	}
 }
+	

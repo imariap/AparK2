@@ -158,9 +158,6 @@ class GUI_ModificarFicha{
 				transfer.setObservaciones(txt_observaciones.getText());
 				transfer.setTelefono(txt_telefono.getText());
 				Gestor_de_Taller.getInstance().ModificarFichaVehiculo(transfer);
-				setVisible(false);
-				limpiarCampos();
-				MenuPrincipal.getInstance().setVisible(true);
 			}
 		});
 		

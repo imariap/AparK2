@@ -5,6 +5,7 @@ package SubSistemaGestorTaller;
 
 import java.util.Set;
 
+import Exceptions.MatriculaIncorrectaException;
 import Principal.CuentaBancaria;
 import Principal.Factura;
 import Principal.ServicioAplicacionTaller;
@@ -46,17 +47,26 @@ public class Gestor_de_Taller {
 	public void action(int num, Object datos){
 		switch (num){
 		case 1: TransferTaller tranferTaller = (TransferTaller) datos; 
-				TransferTaller resultado = ServicioAplicacionTaller.getInstance().ComprobarMatricula(tranferTaller);
-				if (resultado != null){
-					// Comprobación correcta
-					GUI_BuscarParaModificarFicha.getInstance().setVisible(false);
-					GUI_ModificarFicha.getInstance().setVisible(true);
-					GUI_ModificarFicha.getInstance().actualizaDatos(resultado);
-				}
-				else{
-					//Incorrecto
-					GUI_BuscarParaModificarFicha.getInstance().mostrarAlerta("¡Matrícula no encontrada!");
-				}
+		
+				// Comprobamos que este bien formateada la matricula y la guardamos o lanzamos error
+				TransferTaller resultado = null;
+				try {
+					resultado = ServicioAplicacionTaller.getInstance().ComprobarMatricula(tranferTaller);
+					if (resultado != null){
+						// Comprobación correcta
+						GUI_BuscarParaModificarFicha.getInstance().setVisible(false);
+						GUI_ModificarFicha.getInstance().setVisible(true);
+						GUI_ModificarFicha.getInstance().actualizaDatos(resultado);
+					}
+					else{
+						//Incorrecto
+						GUI_BuscarParaModificarFicha.getInstance().mostrarAlerta("¡Matrícula no encontrada!");
+					}
+				} catch (MatriculaIncorrectaException e) {
+					// TODO Auto-generated catch block
+					GUI_BuscarParaModificarFicha.getInstance().mostrarAlerta(e.excText());
+				}			
+				
 				
 				break;
 		}
@@ -71,17 +81,24 @@ public class Gestor_de_Taller {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 		TransferTaller tranferTaller = (TransferTaller) datos; 
-		TransferTaller resultado = ServicioAplicacionTaller.getInstance().ComprobarMatricula(tranferTaller);
-		if (resultado != null){
-			// Comprobación correcta
-			GUI_BuscarParaCrearFactura.getInstance().setVisible(false);
-			GUI_CrearFactura.getInstance().setVisible(true);
-			GUI_CrearFactura.getInstance().setTransfer(resultado);
-		}
-		else{
-			//Incorrecto
-			GUI_BuscarParaModificarFicha.getInstance().mostrarAlerta("¡Matrícula no encontrada!");
-		}
+		TransferTaller resultado = null;
+		try {
+			resultado = ServicioAplicacionTaller.getInstance().ComprobarMatricula(tranferTaller);
+			if (resultado != null){
+				// Comprobación correcta
+				GUI_BuscarParaCrearFactura.getInstance().setVisible(false);
+				GUI_CrearFactura.getInstance().setVisible(true);
+				GUI_CrearFactura.getInstance().setTransfer(resultado);
+			}
+			else{
+				//Incorrecto
+				GUI_BuscarParaModificarFicha.getInstance().mostrarAlerta("¡Matrícula no encontrada!");
+			}
+		} catch (MatriculaIncorrectaException e) {
+			// TODO Auto-generated catch block
+			//GUI_BuscarParaModificarFicha.getInstance().mostrarAlerta(e.excText());
+			System.out.println("Error matricula");
+		}		
 		// end-user-code
 	}
 
@@ -93,7 +110,15 @@ public class Gestor_de_Taller {
 	public void ModificarFichaVehiculo(TransferTaller transfer) {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
-		ServicioAplicacionTaller.getInstance().GuardarFicha(transfer);
+		try {
+			ServicioAplicacionTaller.getInstance().GuardarFicha(transfer);
+			GUI_ModificarFicha.getInstance().setVisible(false);
+			GUI_ModificarFicha.getInstance().limpiarCampos();
+			GUI_Taller.getInstance().setVisible(true);
+		} catch (MatriculaIncorrectaException e) {
+			// TODO Auto-generated catch block
+			GUI_ModificarFicha.getInstance().mostrarAlerta(e.excText());
+		}
 		// end-user-code
 	}
 
@@ -102,10 +127,18 @@ public class Gestor_de_Taller {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void RegistrarIngresoVehiculo() {
+	public void RegistrarIngresoVehiculo(TransferTaller transfer) {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
-		
+		try {
+			ServicioAplicacionTaller.getInstance().GuardarFicha(transfer);
+			GUI_IngresoVehiculo.getInstance().setVisible(false);
+			GUI_IngresoVehiculo.getInstance().limpiarCampos();
+			GUI_Taller.getInstance().setVisible(true);
+		} catch (MatriculaIncorrectaException e) {
+			// TODO Auto-generated catch block
+			GUI_IngresoVehiculo.getInstance().mostrarAlerta(e.excText());
+		}
 		// end-user-code
 	}
 
@@ -166,17 +199,27 @@ public class Gestor_de_Taller {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 		TransferTaller tranferTaller = (TransferTaller) datos; 
-		TransferTaller resultado = ServicioAplicacionTaller.getInstance().ComprobarMatricula(tranferTaller);
-		if (resultado.getFacturas().size() == 0){
-			// Sin facturas
-			GUI_ModificarFicha.getInstance().mostrarAlerta("El cliente no tiene facturas.");
+		TransferTaller resultado = null;
+		try {
+			resultado = ServicioAplicacionTaller.getInstance().ComprobarMatricula(tranferTaller);
+			if (resultado.getFacturas().size() == 0){
+				// Sin facturas
+				GUI_ModificarFicha.getInstance().mostrarAlerta("El cliente no tiene facturas.");
+			}
+			else{
+				// Muestra facturas
+				GUI_ModificarFicha.getInstance().setVisible(false);			
+				GUI_MostrarFacturas.getInstance().actualizaDatos(resultado.getFacturas());
+			}
+		} catch (MatriculaIncorrectaException e) {
+			// TODO Auto-generated catch block
+			//GUI_BuscarParaModificarFicha.getInstance().mostrarAlerta(e.excText());
+			System.out.println("Error matricula");
 		}
-		else{
-			// Muestra facturas
-			GUI_ModificarFicha.getInstance().setVisible(false);			
-			GUI_MostrarFacturas.getInstance().actualizaDatos(resultado.getFacturas());
-		}
+		
+		
 		
 		// end-user-code
 	}
+
 }

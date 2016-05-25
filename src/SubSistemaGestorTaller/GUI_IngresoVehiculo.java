@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -146,10 +147,7 @@ class GUI_IngresoVehiculo{
 				transfer.setNombre(txt_nombre.getText());
 				transfer.setObservaciones(txt_observaciones.getText());
 				transfer.setTelefono(txt_telefono.getText());
-				Gestor_de_Taller.getInstance().ModificarFichaVehiculo(transfer);
-				setVisible(false);
-				limpiarCampos();
-				MenuPrincipal.getInstance().setVisible(true);
+				Gestor_de_Taller.getInstance().RegistrarIngresoVehiculo(transfer);				
 			}
 		});
 		
@@ -188,6 +186,13 @@ class GUI_IngresoVehiculo{
 		 txt_telefono.setText("");
 		 txt_matricula.setText("");
 		 txt_observaciones.setText("");
+	}
+	
+	public void mostrarAlerta(String texto){
+		JOptionPane.showMessageDialog(frame,
+			    texto,
+			    "¡Error!",
+			    JOptionPane.OK_OPTION);
 	}
 
 }
