@@ -18,6 +18,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import Principal.Factura;
 import Principal.TransferTaller;
@@ -107,7 +108,7 @@ class GUI_MostrarFacturas{
         panelPiezas.add(lb_preciopieza);    
         panelPiezas.add(txt_preciopieza);		
 				
-        lb_nombre = new JLabel("Nombre:");	;
+        lb_nombre = new JLabel("Nombre:");
     	lb_piezas = new JLabel("Piezas:");	;
     	lb_importe = new JLabel("Importe:");	;
     	lb_manodeobra = new JLabel("Mano de obra:");	;
@@ -129,7 +130,7 @@ class GUI_MostrarFacturas{
 		bt_siguiente = new JButton("Siguiente");
 		bt_volver = new JButton("Volver");
 		
-		gbc.gridx = 0; gbc.gridy = 0;
+		gbc.gridx = 0; gbc.gridy = 0; gbc.fill = GridBagConstraints.BOTH;
 		root.add(lb_nombre, gbc);
 		
 		gbc.gridx = 1; gbc.gridy = 0;
@@ -138,15 +139,14 @@ class GUI_MostrarFacturas{
 		gbc.gridx = 2; gbc.gridy = 0;
 		root.add(lb_piezas, gbc);
 		
-		gbc.gridx = 2; gbc.gridy = 1; /////////////////////////////////////////////////////recolocar
-		scrollPane = new JScrollPane();
-		listaPiezas.setPreferredSize(new Dimension(150, 800));		
+		gbc.gridx = 2; gbc.gridy = 1;  gbc.gridheight = 5;  gbc.gridwidth = 2;
+		scrollPane = new JScrollPane();	
 		scrollPane.setViewportView(listaPiezas);
 		root.add(scrollPane, gbc);
 		
 		gbc.anchor = GridBagConstraints.EAST;
 		
-		gbc.gridx = 0; gbc.gridy = 2;
+		gbc.gridx = 0; gbc.gridy = 2;  gbc.gridheight = 1;   gbc.gridwidth = 1;
 		root.add(lb_importe, gbc);
 		
 		gbc.gridx = 1; gbc.gridy = 2;
@@ -182,7 +182,7 @@ class GUI_MostrarFacturas{
 		gbc.gridx = 1; gbc.gridy = 7;
 		root.add(bt_siguiente, gbc);
 		
-		gbc.gridx = 2; gbc.gridy = 7;
+		gbc.gridx = 3; gbc.gridy = 7;
 		root.add(bt_volver, gbc);
 		
 		bt_anterior.addActionListener(new ActionListener() {
