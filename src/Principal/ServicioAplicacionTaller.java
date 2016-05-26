@@ -23,7 +23,7 @@ public class ServicioAplicacionTaller {
 	private DAO dao;
 	
 	public ServicioAplicacionTaller(){
-		dao = new DAOTaller();
+		dao = new DAOImp();
 	}
 	
 	public static ServicioAplicacionTaller getInstance() {

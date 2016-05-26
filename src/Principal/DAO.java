@@ -13,14 +13,7 @@ public interface DAO {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void Insert_Guerdar_Fecha();
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void SelectComprobaDatos();
+	public TransferLavadero obtenerPrecios();
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->

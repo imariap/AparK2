@@ -54,7 +54,7 @@ public class GUI_FinalizarLavado {
 		root.setBackground(Color.WHITE);
 
 		lb = new JLabel("Su lavado ha finalizado correctamente.");
-		lb2 = new JLabel("El importe del lavado es 14,99€");
+		lb2 = new JLabel("El importe del lavado es " + Gestor_Lavadero.getInstance().getPrecioTotal() + " €");
 		
 		bt_tarjeta = new JButton("Tarjeta");
 		bt_efectivo = new JButton("Efectivo");
@@ -88,6 +88,8 @@ public class GUI_FinalizarLavado {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				mostrarAlerta("Introduzca su tarjeta");
+				Gestor_Lavadero.getInstance().pagarLavado();
+				mostrarAlerta("Pago correcto. ¡Gracias por su visita!");
 				setVisible(false);
 				GUI_Lavadero.getInstance().setVisible(true);
 				
@@ -97,7 +99,8 @@ public class GUI_FinalizarLavado {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					mostrarAlerta("Pase por caja");
+					mostrarAlerta("Por favor, pase por caja para finalizar el pago.");
+					Gestor_Lavadero.getInstance().pagarLavado();
 					setVisible(false);
 					GUI_Lavadero.getInstance().setVisible(true);
 					
@@ -106,6 +109,7 @@ public class GUI_FinalizarLavado {
 		}
 		
 		public void setVisible(boolean x){
+			lb2.setText("El importe del lavado es " + Gestor_Lavadero.getInstance().getPrecioTotal() + " €");
 			this.frame.setVisible(x);
 		}
 		

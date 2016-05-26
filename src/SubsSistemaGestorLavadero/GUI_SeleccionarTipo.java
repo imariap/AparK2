@@ -142,22 +142,22 @@ public class GUI_SeleccionarTipo {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// crear el thread
-				setVisible(false);
-				op_agua.setSelectedIndex(0);
-				op_lavado.setSelectedIndex(0);
-				op_cristales.setSelectedIndex(0);
-				op_llantas.setSelectedIndex(0);
-				GUI_Lavadero.getInstance().setVisible(true);
-				//
 				worker = new SwingWorker() {
 
 					@Override
 					protected Object doInBackground() {
-						Gestor_Lavadero.getInstance().empezarLavado();
+						Gestor_Lavadero.getInstance().empezarLavado(op_agua.getSelectedIndex(), op_lavado.getSelectedIndex(), op_cristales.getSelectedIndex(), op_llantas.getSelectedIndex());
 						return null;
 					}
 				};
 				worker.execute();
+				mostrarMensaje("Lavado iniciado.");
+				GUI_SeleccionarTipo.getInstance().setVisible(false);
+				op_agua.setSelectedIndex(0);
+				op_lavado.setSelectedIndex(0);
+				op_cristales.setSelectedIndex(0);
+				op_llantas.setSelectedIndex(0);				
+				GUI_Lavadero.getInstance().setVisible(true);				
 			}
 		});
 	}
@@ -173,6 +173,13 @@ public class GUI_SeleccionarTipo {
 
 	public void mostrarAlerta(String texto) {
 		JOptionPane.showMessageDialog(frame, texto, "¡Error!", JOptionPane.OK_OPTION);
+	}
+	
+	public void mostrarMensaje(String texto){
+		JOptionPane.showMessageDialog(frame,
+			    texto,
+			    "Pago del lavado",
+			    JOptionPane.INFORMATION_MESSAGE);
 	}
 
 }

@@ -19,9 +19,23 @@ public class ALMACEN{
 	private static ALMACEN instance = null;
 	private ArrayList<TransferTaller> datosTaller;
 	private static String nombreArchivo = "BaseDeDatos";
+	private TransferLavadero preciosLavadero;
 	
 	public ALMACEN(){
 		datosTaller = new ArrayList<TransferTaller>();
+		preciosLavadero = new TransferLavadero();
+		
+		//Datos de prueba para el lavadero
+		preciosLavadero.getPrecioTipoAgua().add(1.0); // Agua fria
+		preciosLavadero.getPrecioTipoAgua().add(1.5); // Agua caliente
+		preciosLavadero.getPrecioTipoLavado().add(3.0); // Lavado rapido
+		preciosLavadero.getPrecioTipoLavado().add(4.0); // Lavado completo
+		preciosLavadero.getPrecioCristales().add(0.0); // Cristales - nada
+		preciosLavadero.getPrecioCristales().add(1.0); // Cristales - eco
+		preciosLavadero.getPrecioCristales().add(1.5); // Cristales - quimico
+		preciosLavadero.getPrecioLlantas().add(0.0); // Llantas - nada
+		preciosLavadero.getPrecioLlantas().add(1.0); // Llantas - eco
+		preciosLavadero.getPrecioLlantas().add(1.5); // Llantas - quimico
 		
 		// Cargamos todos los datos al inicializarlo
 		FileInputStream fis;
@@ -78,10 +92,10 @@ public class ALMACEN{
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void verificarMatricula() {
+	public TransferLavadero obtenerPreciosLavadero() {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
-
+		return preciosLavadero;
 		// end-user-code
 	}
 

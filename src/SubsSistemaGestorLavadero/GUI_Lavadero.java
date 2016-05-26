@@ -91,7 +91,12 @@ public class GUI_Lavadero {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				Gestor_Lavadero.getInstance().comprobarLavadoIniciado();
+				if(Gestor_Lavadero.getInstance().getPrecioTotal() == 0){
+					Gestor_Lavadero.getInstance().comprobarLavadoIniciado();
+				}
+				else{
+					mostrarAlerta("Debe finalizar el lavado antes de empezar uno nuevo.");
+				}				
 			}
 		});
 		
@@ -118,8 +123,18 @@ public class GUI_Lavadero {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				frame.setVisible(false);
-				GUI_FinalizarLavado.getInstance().setVisible(true);
+				GUI_InterrumpirLavado.getInstance().setVisible(false);
+				if(GUI_InterrumpirLavado.getInstance().getBar().getValue() != 0){
+					mostrarAlerta("El lavado aun está en curso.");
+				}
+				else if(Gestor_Lavadero.getInstance().getPrecioTotal() == 0){
+					mostrarAlerta("Todavia no ha iniciado el lavado.");
+				}
+				else{
+					frame.setVisible(false);
+					GUI_FinalizarLavado.getInstance().setVisible(true);
+				}
+				
 			}
 		});
 	}

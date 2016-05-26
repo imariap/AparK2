@@ -5,13 +5,7 @@ package Principal;
  * @author Ivan
  * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public class DAOTaller implements DAO {
-
-	@Override
-	public void SelectComprobaDatos() {
-		// TODO Auto-generated method stub
-		
-	}
+public class DAOImp implements DAO {
 
 	@Override
 	public void InsertDatosYaModificados(TransferTaller transfer) {
@@ -27,8 +21,8 @@ public class DAOTaller implements DAO {
 	}
 
 	@Override
-	public void Insert_Guerdar_Fecha() {
+	public TransferLavadero obtenerPrecios() {
 		// TODO Auto-generated method stub
-		
+		return ALMACEN.getInstance().obtenerPreciosLavadero();
 	}
 }
