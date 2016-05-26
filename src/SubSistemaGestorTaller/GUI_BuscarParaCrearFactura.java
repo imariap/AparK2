@@ -82,12 +82,12 @@ class GUI_BuscarParaCrearFactura{
 			 * */
 			TransferTaller tranferTaller = new TransferTaller(txt_matricula.getText());
 			Gestor_de_Taller.getInstance().FacturarServicioPrestado(tranferTaller);
-			txt_matricula.setText("");
 			}
 		});
 	}
 	
 	public void setVisible(boolean x){
+		txt_matricula.setText("");
 		this.frame.setVisible(x);
 	}
 	

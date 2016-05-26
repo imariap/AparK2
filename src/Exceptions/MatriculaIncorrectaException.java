@@ -4,8 +4,9 @@ public class MatriculaIncorrectaException extends Exception {
 	
 	public MatriculaIncorrectaException(){}
 	
-	public String excText(){
-        return "Formato de matrícula incorrecto. (EJ: 1234XXX)";
+	@Override
+	public String getMessage(){
+        return "Formato de matrícula incorrecto. (Ej: 1234XXX)";
     }
 
 }

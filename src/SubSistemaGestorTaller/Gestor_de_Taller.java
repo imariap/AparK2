@@ -5,7 +5,11 @@ package SubSistemaGestorTaller;
 
 import java.util.Set;
 
+import Exceptions.CampoVacioException;
+import Exceptions.DNIIncorrectoException;
+import Exceptions.MatriculaExistenteException;
 import Exceptions.MatriculaIncorrectaException;
+import Exceptions.TelefonoIncorrectoException;
 import Principal.CuentaBancaria;
 import Principal.Factura;
 import Principal.ServicioAplicacionTaller;
@@ -64,7 +68,7 @@ public class Gestor_de_Taller {
 					}
 				} catch (MatriculaIncorrectaException e) {
 					// TODO Auto-generated catch block
-					GUI_BuscarParaModificarFicha.getInstance().mostrarAlerta(e.excText());
+					GUI_BuscarParaModificarFicha.getInstance().mostrarAlerta(e.getMessage());
 				}			
 				
 				
@@ -92,13 +96,12 @@ public class Gestor_de_Taller {
 			}
 			else{
 				//Incorrecto
-				GUI_BuscarParaModificarFicha.getInstance().mostrarAlerta("¡Matrícula no encontrada!");
+				GUI_BuscarParaCrearFactura.getInstance().mostrarAlerta("¡Matrícula no encontrada!");
 			}
 		} catch (MatriculaIncorrectaException e) {
 			// TODO Auto-generated catch block
-			//GUI_BuscarParaModificarFicha.getInstance().mostrarAlerta(e.excText());
-			System.out.println("Error matricula");
-		}		
+			GUI_BuscarParaModificarFicha.getInstance().mostrarAlerta(e.getMessage());
+		}	
 		// end-user-code
 	}
 
@@ -115,9 +118,9 @@ public class Gestor_de_Taller {
 			GUI_ModificarFicha.getInstance().setVisible(false);
 			GUI_ModificarFicha.getInstance().limpiarCampos();
 			GUI_Taller.getInstance().setVisible(true);
-		} catch (MatriculaIncorrectaException e) {
+		} catch (MatriculaIncorrectaException | DNIIncorrectoException | MatriculaExistenteException | TelefonoIncorrectoException | CampoVacioException e) {
 			// TODO Auto-generated catch block
-			GUI_ModificarFicha.getInstance().mostrarAlerta(e.excText());
+			GUI_ModificarFicha.getInstance().mostrarAlerta(e.getMessage());
 		}
 		// end-user-code
 	}
@@ -131,16 +134,32 @@ public class Gestor_de_Taller {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 		try {
-			ServicioAplicacionTaller.getInstance().GuardarFicha(transfer);
+			ServicioAplicacionTaller.getInstance().registrarIngreso(transfer);
 			GUI_IngresoVehiculo.getInstance().setVisible(false);
 			GUI_IngresoVehiculo.getInstance().limpiarCampos();
 			GUI_Taller.getInstance().setVisible(true);
-		} catch (MatriculaIncorrectaException e) {
+		} catch (MatriculaIncorrectaException | DNIIncorrectoException | MatriculaExistenteException | TelefonoIncorrectoException | CampoVacioException e) {
 			// TODO Auto-generated catch block
-			GUI_IngresoVehiculo.getInstance().mostrarAlerta(e.excText());
+			GUI_IngresoVehiculo.getInstance().mostrarAlerta(e.getMessage());
 		}
 		// end-user-code
 	}
+	
+	public void crearFactura(TransferTaller transfer) {
+		// begin-user-code
+		// TODO Apéndice de método generado automáticamente
+		try {
+			ServicioAplicacionTaller.getInstance().GuardarFactura(transfer);
+			GUI_CrearFactura.getInstance().setVisible(false);
+			GUI_CrearFactura.getInstance().limpiarCampos();
+			GUI_Taller.getInstance().setVisible(true);
+		} catch (MatriculaIncorrectaException | DNIIncorrectoException | MatriculaExistenteException | TelefonoIncorrectoException | CampoVacioException e) {
+			// TODO Auto-generated catch block
+			GUI_CrearFactura.getInstance().mostrarAlerta(e.getMessage());
+		}
+		// end-user-code
+	}
+	
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -178,18 +197,7 @@ public class Gestor_de_Taller {
 		// end-user-code
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void crearFactura() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
-
+	
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
@@ -213,7 +221,6 @@ public class Gestor_de_Taller {
 			}
 		} catch (MatriculaIncorrectaException e) {
 			// TODO Auto-generated catch block
-			//GUI_BuscarParaModificarFicha.getInstance().mostrarAlerta(e.excText());
 			System.out.println("Error matricula");
 		}
 		

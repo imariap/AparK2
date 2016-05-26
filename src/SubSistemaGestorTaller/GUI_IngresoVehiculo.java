@@ -172,17 +172,8 @@ class GUI_IngresoVehiculo{
 		frame.getRootPane().setDefaultButton(bt_guardar);
 	}
 	
-	public void actualizaDatos(TransferTaller datos){
-		txt_nombre.setText(datos.getNombre());
-		txt_apellidos.setText(datos.getApellidos());
-		txt_dni.setText(datos.getDNI());
-		txt_matricula.setText(datos.getMatricula());
-		txt_telefono.setText(datos.getTelefono());
-		txt_observaciones.setText(datos.getObservaciones());
-	}
-	
-	
 	public void setVisible(boolean x){
+		limpiarCampos();
 		this.frame.setVisible(x);
 	}
 

@@ -94,7 +94,7 @@ class GUI_CrearFactura{
 				
 		/* Panel para piezas */
 		panelPiezas = new JPanel();
-        lb_nombrepieza = new JLabel("Pieza:");
+        lb_nombrepieza = new JLabel("Nombre:");
         lb_preciopieza = new JLabel("Precio:");
         txt_nombrepieza = new JTextField(10);
         txt_preciopieza = new JTextField(5);
@@ -117,14 +117,29 @@ class GUI_CrearFactura{
 			      if (result == JOptionPane.OK_OPTION) {
 			         Pieza p = new Pieza();
 			         p.setNombre(txt_nombrepieza.getText());
-			         p.setPrecio(Double.parseDouble(txt_preciopieza.getText()));
-			         piezas.add(p);	
-			         txt_importe.setText(String.valueOf(Double.parseDouble(txt_importe.getText()) + p.getPrecio() ));
-			         model.addElement(txt_nombrepieza.getText() + ":  " + txt_preciopieza.getText() + "€");		
-			         txt_iva.setText(String.valueOf( (Double.parseDouble(txt_importe.getText()) * Integer.parseInt(txt_ivaporc.getText()) /100) + (Double.parseDouble(txt_manodeobra.getText()) * Integer.parseInt(txt_ivaporc.getText()) /100)));
-			         txt_total.setText(String.valueOf( Double.parseDouble(txt_importe.getText()) + Double.parseDouble(txt_manodeobra.getText()) + Double.parseDouble(txt_iva.getText())));
-			         miPanel.revalidate();
-			         miPanel.repaint();
+			         if(txt_nombrepieza.getText().isEmpty()){
+			        	 mostrarAlerta("El campo 'Nombre' de la pieza no puede estar vacio.");
+			        	 bt_anadirPieza.doClick();
+			         }
+			         else{
+			        	 try{
+				        	 p.setPrecio(Double.parseDouble(txt_preciopieza.getText()));
+				        	 piezas.add(p);	
+					         txt_importe.setText(String.valueOf(Double.parseDouble(txt_importe.getText()) + p.getPrecio() ));
+					         model.addElement(txt_nombrepieza.getText() + ":  " + txt_preciopieza.getText() + "€");		
+					         txt_iva.setText(String.format("%.2f", (Double.parseDouble(txt_importe.getText()) * Integer.parseInt(txt_ivaporc.getText()) /100) + (Double.parseDouble(txt_manodeobra.getText()) * Integer.parseInt(txt_ivaporc.getText()) /100)));
+					         txt_iva.setText(txt_iva.getText().replace(',', '.'));
+					         txt_total.setText(String.format("%.2f", Double.parseDouble(txt_importe.getText()) + Double.parseDouble(txt_manodeobra.getText()) + Double.parseDouble(txt_iva.getText())));
+					         txt_total.setText(txt_total.getText().replace(',', '.'));
+					         miPanel.revalidate();
+					         miPanel.repaint();
+					      } catch (NumberFormatException a){
+								System.out.println(a.getMessage());
+								mostrarAlerta("El precio debe ser un número. (Ej: 12.30)");
+								bt_anadirPieza.doClick();
+							}
+				         
+			         }			         
 			      }
 			}
 		});
@@ -165,11 +180,21 @@ class GUI_CrearFactura{
 			
 			@Override
 			public void focusLost(FocusEvent e) {
-				// TODO Auto-generated method stub
-				txt_iva.setText(String.valueOf( (Double.parseDouble(txt_importe.getText()) * Integer.parseInt(txt_ivaporc.getText()) /100) + (Double.parseDouble(txt_manodeobra.getText()) * Integer.parseInt(txt_ivaporc.getText()) /100)));
-		         txt_total.setText(String.valueOf( Double.parseDouble(txt_importe.getText()) + Double.parseDouble(txt_manodeobra.getText()) + Double.parseDouble(txt_iva.getText())));
-		         miPanel.revalidate();
-		         miPanel.repaint();
+				try{
+					// TODO Auto-generated method stub
+					txt_iva.setText(String.format("%.2f", (Double.parseDouble(txt_importe.getText()) * Integer.parseInt(txt_ivaporc.getText()) /100) + (Double.parseDouble(txt_manodeobra.getText()) * Integer.parseInt(txt_ivaporc.getText()) /100)));
+					txt_iva.setText(txt_iva.getText().replace(',', '.'));
+					txt_total.setText(String.format("%.2f", Double.parseDouble(txt_importe.getText()) + Double.parseDouble(txt_manodeobra.getText()) + Double.parseDouble(txt_iva.getText())));
+			        txt_total.setText(txt_total.getText().replace(',', '.'));
+			        miPanel.revalidate();
+			         miPanel.repaint();
+				} catch (NumberFormatException a){
+					System.out.println(a.getMessage());
+					mostrarAlerta("La mano de obra debe ser un número. (Ej: 12.30)");
+					txt_manodeobra.setText("0");
+				}
+				
+				
 			}
 			
 			@Override
@@ -260,9 +285,7 @@ class GUI_CrearFactura{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				transfer.addFactura(txt_nombre.getText(), Double.parseDouble(txt_importe.getText()), Double.parseDouble(txt_manodeobra.getText()), Integer.parseInt(txt_ivaporc.getText()), Double.parseDouble(txt_iva.getText()), Double.parseDouble(txt_total.getText()), piezas);
-				Gestor_de_Taller.getInstance().ModificarFichaVehiculo(transfer);
-				setVisible(false);
-				GUI_Taller.getInstance().setVisible(true);
+				Gestor_de_Taller.getInstance().crearFactura(transfer);				
 			}
 		});
 		
@@ -282,11 +305,31 @@ class GUI_CrearFactura{
 	}
 	
 	public void setVisible(boolean x){
+		limpiarCampos();
 		this.frame.setVisible(x);
 	}
 	
 	public void setTransfer(TransferTaller transfer){
 		this.transfer = transfer;
+	}
+
+
+	public void limpiarCampos() {
+		// TODO Auto-generated method stub
+		txt_nombre.setText("");
+    	txt_importe.setText("0");
+    	txt_manodeobra.setText("0");
+    	txt_ivaporc.setText("21");
+    	txt_iva.setText("0");
+    	txt_total.setText("0");
+    	model.removeAllElements();
+	}
+	
+	public void mostrarAlerta(String texto){
+		JOptionPane.showMessageDialog(frame,
+			    texto,
+			    "¡Error!",
+			    JOptionPane.OK_OPTION);
 	}
 	
 }
