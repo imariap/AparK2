@@ -8,6 +8,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Principal.JDialogOKOption;
 import Principal.TransferTaller;
 import Principal.VentanaEstandar;
 
@@ -92,10 +94,18 @@ class GUI_BuscarParaModificarFicha{
 	}
 	
 	public void mostrarAlerta(String texto){
-		JOptionPane.showMessageDialog(frame,
+		/*JOptionPanePropio jdialog = new JOptionPanePropio();
+		jdialog.showMessageDialog(frame,
 			    texto,
 			    "¡Error!",
-			    JOptionPane.OK_OPTION);
+			    JOptionPane.OK_OPTION);*/
+		
+		new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon("warning.png")).setVisible(true);
+		
+		/*JOptionPane.showMessageDialog(frame,
+			    texto,
+			    "¡Error!",
+			    JOptionPane.OK_OPTION);*/
 	}
 	
 }
