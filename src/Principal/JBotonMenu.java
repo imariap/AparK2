@@ -1,6 +1,8 @@
 package Principal;
 
 import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -16,5 +18,7 @@ public class JBotonMenu extends JButton {
 		this.setFocusPainted(false);
 		this.setBackground(Color.white);
 		this.setForeground(colorGris);
+		this.setPreferredSize(new Dimension(200, 50));
+		this.setCursor(new Cursor(Cursor.HAND_CURSOR));
 	}
 }

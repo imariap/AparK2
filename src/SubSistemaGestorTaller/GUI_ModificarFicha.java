@@ -83,6 +83,7 @@ class GUI_ModificarFicha{
 		txt_dni = new JTextField();
 		txt_dni.setPreferredSize( new Dimension( 200, 24 ) );
 		txt_matricula = new JTextField();
+		txt_matricula.setEditable(false);
 		txt_matricula.setPreferredSize( new Dimension( 200, 24 ) );
 		txt_telefono = new JTextField();
 		txt_telefono.setPreferredSize( new Dimension( 200, 24 ) );
