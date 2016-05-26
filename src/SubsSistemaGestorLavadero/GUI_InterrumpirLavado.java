@@ -83,7 +83,7 @@ public class GUI_InterrumpirLavado {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				GUI_SeleccionarTipo.getInstance().fin(); //////////////////////////////finaliza
+				Gestor_Lavadero.getInstance().finalizarLavado();
 				mostrarAlerta("Lavado cancelado con éxito");
 				setVisible(false);
 				GUI_Lavadero.getInstance().setVisible(true);

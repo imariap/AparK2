@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Principal.Empleado;
@@ -90,8 +91,7 @@ public class GUI_Lavadero {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				frame.setVisible(false);
-				GUI_SeleccionarTipo.getInstance().setVisible(true);
+				Gestor_Lavadero.getInstance().comprobarLavadoIniciado();
 			}
 		});
 		
@@ -100,14 +100,15 @@ public class GUI_Lavadero {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				frame.setVisible(false);
-				GUI_InterrumpirLavado.getInstance().setVisible(false);
-				if(GUI_InterrumpirLavado.getInstance().getBar().getValue() != 0)
+				
+				if(GUI_InterrumpirLavado.getInstance().getBar().getValue() != 0){
+					setVisible(false);
 					GUI_InterrumpirLavado.getInstance().setVisible(true);
-				else{
-					frame.setVisible(true);				
-					GUI_InterrumpirLavado.getInstance().mostrarAlerta("No hay ningún lavado en curso");
-					}
+				}
+				else{				
+					GUI_InterrumpirLavado.getInstance().setVisible(false);
+					mostrarAlerta("No hay ningún lavado en curso");
+				}
 				
 			}
 		});
@@ -121,6 +122,13 @@ public class GUI_Lavadero {
 				GUI_FinalizarLavado.getInstance().setVisible(true);
 			}
 		});
+	}
+	
+	public void mostrarAlerta(String texto){
+		JOptionPane.showMessageDialog(frame,
+			    texto,
+			    "Confirmación",
+			    JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 	public void setVisible(boolean x){

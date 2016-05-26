@@ -138,7 +138,7 @@ class GUI_MostrarFacturas{
 		gbc.gridx = 2; gbc.gridy = 0;
 		root.add(lb_piezas, gbc);
 		
-		gbc.gridx = 2; gbc.gridy = 1;
+		gbc.gridx = 2; gbc.gridy = 1; /////////////////////////////////////////////////////recolocar
 		scrollPane = new JScrollPane();
 		listaPiezas.setPreferredSize(new Dimension(150, 800));		
 		scrollPane.setViewportView(listaPiezas);
@@ -198,7 +198,7 @@ class GUI_MostrarFacturas{
 				txt_ivaporc.setText(String.valueOf(facturas.get(index).getIVAPorc()) + " %");
 				txt_manodeobra.setText(String.valueOf(facturas.get(index).getManoDeObra()) + " €");
 				txt_nombre.setText(String.valueOf(facturas.get(index).getNombre()));
-				txt_total.setText(String.valueOf(facturas.get(index).getTOTAL()) + " €");
+				txt_total.setText(String.format("%.2f", facturas.get(index).getTOTAL()) + " €"); 
 				model.removeAllElements();
 				for(int i = 0; i < facturas.get(index).getPiezas().size(); i++){
 					model.addElement(facturas.get(index).getPiezas().get(i).getNombre() + ":  " + facturas.get(index).getPiezas().get(i).getPrecio() + " €");
@@ -227,7 +227,7 @@ class GUI_MostrarFacturas{
 				txt_ivaporc.setText(String.valueOf(facturas.get(index).getIVAPorc()) + " %");
 				txt_manodeobra.setText(String.valueOf(facturas.get(index).getManoDeObra()) + " €");
 				txt_nombre.setText(String.valueOf(facturas.get(index).getNombre()));
-				txt_total.setText(String.valueOf(facturas.get(index).getTOTAL()) + " €");
+				txt_total.setText(String.format("%.2f", facturas.get(index).getTOTAL()) + " €"); 
 				model.removeAllElements();
 				for(int i = 0; i < facturas.get(index).getPiezas().size(); i++){
 					model.addElement(facturas.get(index).getPiezas().get(i).getNombre() + ":  " + facturas.get(index).getPiezas().get(i).getPrecio() + " €");
@@ -272,7 +272,7 @@ class GUI_MostrarFacturas{
 		txt_ivaporc.setText(String.valueOf(facturas.get(0).getIVAPorc()) + " %");
 		txt_manodeobra.setText(String.valueOf(facturas.get(0).getManoDeObra()) + " €");
 		txt_nombre.setText(String.valueOf(facturas.get(0).getNombre()));
-		txt_total.setText(String.valueOf(facturas.get(0).getTOTAL()) + " €");
+		txt_total.setText(String.format("%.2f", facturas.get(index).getTOTAL()) + " €"); 
 		model.removeAllElements();
 		for(int i = 0; i < facturas.get(0).getPiezas().size(); i++){
 			model.addElement(facturas.get(0).getPiezas().get(i).getNombre() + ":  " + facturas.get(0).getPiezas().get(i).getPrecio() + " €");
