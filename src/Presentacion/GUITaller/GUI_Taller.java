@@ -102,6 +102,7 @@ public class GUI_Taller{
 	
 	public void setVisible(boolean x){
 		this.frame.setVisible(x);
+		if (x) this.frame.toFront();
 	}
 	
 }

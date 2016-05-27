@@ -250,6 +250,7 @@ public class GUI_MostrarFacturas{
 	
 	public void setVisible(boolean x){
 		this.frame.setVisible(x);
+		if (x) this.frame.toFront();
 	}
 	
 	public void setTransfer(TransferTaller transfer){

@@ -100,6 +100,7 @@ public class GUI_InterrumpirLavado {
 		
 		public void setVisible(boolean x){
 			this.frame.setVisible(x);
+			if (x) this.frame.toFront();
 		}
 		
 		public void mostrarAlerta(String texto){

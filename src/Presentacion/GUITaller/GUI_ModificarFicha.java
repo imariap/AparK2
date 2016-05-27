@@ -213,6 +213,7 @@ public class GUI_ModificarFicha{
 	
 	public void setVisible(boolean x){
 		this.frame.setVisible(x);
+		if (x) this.frame.toFront();
 	}
 
 	public void limpiarCampos(){

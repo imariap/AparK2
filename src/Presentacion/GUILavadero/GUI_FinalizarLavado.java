@@ -108,6 +108,7 @@ public class GUI_FinalizarLavado {
 		public void setVisible(boolean x){
 			lb2.setText("El importe del lavado es " + Gestor_Lavadero.getInstance().getPrecioTotal() + " €");
 			this.frame.setVisible(x);
+			if (x) this.frame.toFront();
 		}
 		
 		public void mostrarMensaje(String texto){

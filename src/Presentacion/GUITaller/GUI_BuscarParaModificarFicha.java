@@ -89,6 +89,7 @@ public class GUI_BuscarParaModificarFicha{
 	public void setVisible(boolean x){
 		txt_matricula.setText("");
 		this.frame.setVisible(x);
+		if (x) this.frame.toFront();
 	}
 	
 	public void mostrarAlerta(String texto){

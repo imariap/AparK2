@@ -175,6 +175,7 @@ public class GUI_IngresoVehiculo{
 	public void setVisible(boolean x){
 		limpiarCampos();
 		this.frame.setVisible(x);
+		if (x) this.frame.toFront();
 	}
 
 	public void limpiarCampos(){

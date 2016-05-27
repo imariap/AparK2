@@ -307,6 +307,7 @@ public class GUI_CrearFactura{
 	public void setVisible(boolean x){
 		limpiarCampos();
 		this.frame.setVisible(x);
+		if (x) this.frame.toFront();
 	}
 	
 	public void setTransfer(TransferTaller transfer){
