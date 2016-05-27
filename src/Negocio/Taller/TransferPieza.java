@@ -3,6 +3,7 @@ package Negocio.Taller;
 import java.io.Serializable;
 
 public class TransferPieza implements Serializable{
+	private static final long serialVersionUID = 1L;
 	String Nombre;
 	double Precio;
 	

@@ -8,8 +8,6 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.peer.LightweightPeer;
-
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
@@ -18,7 +16,11 @@ import Presentacion.GUILavadero.*;
 import Presentacion.GUITaller.GUI_Taller;
    
 public class VentanaEstandar extends JFrame{
-	  private Color colorNaraja = new Color(230, 136, 1);
+	  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Color colorNaraja = new Color(230, 136, 1);
 	   
       public VentanaEstandar(JPanel miPanel, String icono) {
     	  

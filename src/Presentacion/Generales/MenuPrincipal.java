@@ -1,36 +1,19 @@
 package Presentacion.Generales;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-
 import javax.swing.*;
-
-import Presentacion.GUILavadero.*;
 
 
 public class MenuPrincipal {
 
 	private static MenuPrincipal instance = null;
 
-	private JPanel panelDatos;
-	private JPanel panelBotones;
-	private JLabel labelColor;
-	private JLabel labelPlanta;
-	private JTextField txtFieldPlanta;
-	private JTextField txtFieldColor;
 	private JButton botonTaller;
-	private JButton botonLavadero;
 	private JFrame frame;
-	
-	private static final long serialVersionUID = -8750603703477734784L;
-
 	
 	public MenuPrincipal(){
 		create();

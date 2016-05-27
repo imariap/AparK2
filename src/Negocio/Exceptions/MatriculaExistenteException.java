@@ -1,7 +1,8 @@
 package Negocio.Exceptions;
 
 public class MatriculaExistenteException extends Exception {
-	
+	private static final long serialVersionUID = 1L;
+
 	public MatriculaExistenteException(){}
 	
 	@Override

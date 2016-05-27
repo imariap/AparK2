@@ -1,7 +1,6 @@
 package Presentacion.GUITaller;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -9,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.sound.sampled.ReverbType;
 import javax.swing.DefaultListModel;
 
 import Negocio.Taller.TransferPieza;
@@ -23,17 +21,12 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 
 public class GUI_MostrarFacturas{
 	
-	private static final long serialVersionUID = 1L;
-
-	private static GUI_ModificarFicha GUI_MostrarFacturas = null;
-	
 	private JPanel root;
 	private JPanel panelPiezas;
+	@SuppressWarnings("rawtypes")
 	private JList listaPiezas;
 	private JLabel lb_nombre;
 	private JLabel lb_piezas;
@@ -51,18 +44,17 @@ public class GUI_MostrarFacturas{
 	private JLabel txt_ivaporc;
 	private JLabel txt_iva;
 	private JLabel txt_total;
+	@SuppressWarnings("unused")
 	private JLabel txt_nombrereparacion;
 	private JLabel txt_nombrepieza;
-	private JLabel txt_preciopieza;
-	
+	private JLabel txt_preciopieza;	
 	private JBotonMenu bt_anterior;
 	private JBotonMenu bt_siguiente;
 	private JBotonMenu bt_volver;
 	private JFrame frame;
 	private JScrollPane scrollPane;
 	
-	private TransferTaller transfer;
-	
+	@SuppressWarnings("unused")
 	private ArrayList<TransferPieza> piezas;
 	private ArrayList<TransferFactura> facturas;
 	private DefaultListModel<String> model;
@@ -261,7 +253,6 @@ public class GUI_MostrarFacturas{
 	}
 	
 	public void setTransfer(TransferTaller transfer){
-		this.transfer = transfer;
 	}
 	
 	public void actualizaDatos(ArrayList<TransferFactura> facturas){		

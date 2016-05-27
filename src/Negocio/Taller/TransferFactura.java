@@ -2,9 +2,8 @@ package Negocio.Taller;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import Presentacion.Controlador.Gestor_de_Taller;
-
 public class TransferFactura  implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private String Nombre;
 	private ArrayList<TransferPieza> Piezas;		
 	private double Importe;

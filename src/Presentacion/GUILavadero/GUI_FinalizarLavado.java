@@ -1,16 +1,13 @@
 package Presentacion.GUILavadero;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import Negocio.Taller.TransferTaller;
 import Presentacion.Controlador.Gestor_Lavadero;
-import Presentacion.Controlador.Gestor_de_Taller;
 import Presentacion.Generales.JBotonMenu;
 import Presentacion.Generales.JDialogOKOption;
 import Presentacion.Generales.VentanaEstandar;
@@ -18,10 +15,7 @@ import Presentacion.Generales.VentanaEstandar;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JProgressBar;
-import javax.swing.JTextField;
 
 public class GUI_FinalizarLavado {
 		

@@ -3,15 +3,12 @@
  */
 package Presentacion.Controlador;
 
-import java.util.Set;
-
 import Negocio.Exceptions.CampoVacioException;
 import Negocio.Exceptions.DNIIncorrectoException;
 import Negocio.Exceptions.MatriculaExistenteException;
 import Negocio.Exceptions.MatriculaIncorrectaException;
 import Negocio.Exceptions.TelefonoIncorrectoException;
 import Negocio.Taller.ServicioAplicacionTaller;
-import Negocio.Taller.TransferFactura;
 import Negocio.Taller.TransferTaller;
 import Presentacion.GUITaller.GUI_BuscarParaCrearFactura;
 import Presentacion.GUITaller.GUI_BuscarParaModificarFicha;
@@ -21,24 +18,10 @@ import Presentacion.GUITaller.GUI_ModificarFicha;
 import Presentacion.GUITaller.GUI_MostrarFacturas;
 import Presentacion.GUITaller.GUI_Taller;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Ivan
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
 public class Gestor_de_Taller {
 	
 	private static Gestor_de_Taller instance = null;
 		
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	
-	private Set<TransferFactura> factura;
-
 	public static Gestor_de_Taller getInstance() {
 		
 		if(instance == null){
@@ -77,11 +60,6 @@ public class Gestor_de_Taller {
 		}
 	}
 	
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public void FacturarServicioPrestado(TransferTaller datos) {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
@@ -106,11 +84,6 @@ public class Gestor_de_Taller {
 		// end-user-code
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public void ModificarFichaVehiculo(TransferTaller transfer) {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
@@ -127,11 +100,6 @@ public class Gestor_de_Taller {
 		// end-user-code
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public void RegistrarIngresoVehiculo(TransferTaller transfer) {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
@@ -165,48 +133,6 @@ public class Gestor_de_Taller {
 	}
 	
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void Datosmatrícula() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void Login() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void ingresoVehiculo() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
-
-	
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public void imprimeFactura(TransferTaller datos) {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
@@ -227,10 +153,6 @@ public class Gestor_de_Taller {
 			// TODO Auto-generated catch block
 			System.out.println("Error matricula");
 		}
-		
-		
-		
-		// end-user-code
 	}
 
 }

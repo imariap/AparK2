@@ -12,13 +12,11 @@ import Negocio.Taller.TransferTaller;
 import Presentacion.Controlador.Gestor_de_Taller;
 import Presentacion.Generales.JBotonMenu;
 import Presentacion.Generales.JDialogOKOption;
-import Presentacion.Generales.MenuPrincipal;
 import Presentacion.Generales.VentanaEstandar;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -26,7 +24,6 @@ public class GUI_ModificarFicha{
 	
 	private static GUI_ModificarFicha instance = null;
 	
-	private JPanel root;
 	private JLabel lb_nombre;
 	private JLabel lb_apellidos;
 	private JLabel lb_dni;

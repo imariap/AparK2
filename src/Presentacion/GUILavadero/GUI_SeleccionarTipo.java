@@ -8,22 +8,17 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import Negocio.Taller.TransferTaller;
 import Presentacion.Controlador.Gestor_Lavadero;
-import Presentacion.Controlador.Gestor_de_Taller;
 import Presentacion.Generales.JBotonMenu;
 import Presentacion.Generales.JDialogOKOption;
 import Presentacion.Generales.JMyComboBox;
 import Presentacion.Generales.VentanaEstandar;
 
 import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 
 public class GUI_SeleccionarTipo {
@@ -41,7 +36,7 @@ public class GUI_SeleccionarTipo {
 	private JMyComboBox op_llantas;
 	private JFrame frame;
 	JBotonMenu bt_iniciarLavado;
-	private SwingWorker worker;
+	private SwingWorker<?, ?> worker;
 
 	public GUI_SeleccionarTipo() {
 		create();
@@ -145,7 +140,7 @@ public class GUI_SeleccionarTipo {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// crear el thread
-				worker = new SwingWorker() {
+				worker = new SwingWorker<Object, Object>() {
 
 					@Override
 					protected Object doInBackground() {
@@ -165,7 +160,7 @@ public class GUI_SeleccionarTipo {
 		});
 	}
 	
-	public SwingWorker getWorker() {
+	public SwingWorker<?, ?> getWorker() {
 		return worker;
 	}
 	

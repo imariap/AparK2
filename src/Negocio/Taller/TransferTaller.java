@@ -3,16 +3,8 @@ package Negocio.Taller;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import Negocio.Transfer.Transfer;
-
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Ivan
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
-public class TransferTaller implements Transfer, Serializable {
-	
+public class TransferTaller implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private String Nombre;
 	private String Apellidos;
 	private String DNI;
@@ -40,67 +32,6 @@ public class TransferTaller implements Transfer, Serializable {
 		Observaciones = "";
 		Facturas = new ArrayList<TransferFactura>();
 	}
-	
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void Crear_Tanfer() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void CogerDatos() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void LlenarTransferDatosFicha() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void RellenarTransferDatosAModificar() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void CambiarDatosEnTransferParaInsertar() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
-	
 	public String getNombre(){
 		return Nombre;
 	}

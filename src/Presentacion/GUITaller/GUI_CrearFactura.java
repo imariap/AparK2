@@ -31,11 +31,8 @@ import javax.swing.JTextField;
 
 public class GUI_CrearFactura{
 
-	private static final long serialVersionUID = 1L;
-
-	private static GUI_ModificarFicha CrearFactura = null;
-	
 	private JPanel panelPiezas;
+	@SuppressWarnings("rawtypes")
 	private JList listaPiezas;
 	private JLabel lb_nombre;
 	private JLabel lb_piezas;
@@ -53,7 +50,6 @@ public class GUI_CrearFactura{
 	private JTextField txt_ivaporc;
 	private JTextField txt_iva;
 	private JTextField txt_total;
-	private JTextField txt_nombrereparacion;
 	private JTextField txt_nombrepieza;
 	private JTextField txt_preciopieza;
 	
@@ -175,7 +171,7 @@ public class GUI_CrearFactura{
     	txt_total = new JTextField(10);
     	txt_total.setText("0");
     	txt_total.setEditable(false);
-    	txt_nombrereparacion = new JTextField(10);
+    	new JTextField(10);
     	
     	// Tratamiento especial para la mano de obra
     	// Ya que debe calcular el total solo cuando

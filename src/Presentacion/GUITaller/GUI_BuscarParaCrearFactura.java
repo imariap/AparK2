@@ -17,17 +17,13 @@ import Presentacion.Generales.VentanaEstandar;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class GUI_BuscarParaCrearFactura{
 	
-	private static final long serialVersionUID = 1L;
-
 	private static GUI_BuscarParaCrearFactura instance = null;
 	
-	private JPanel root;
 	private JLabel lb_matricula;
 	private JTextField txt_matricula;
 	private JBotonMenu bt_siguiente;

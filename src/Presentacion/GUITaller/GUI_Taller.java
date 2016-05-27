@@ -1,8 +1,5 @@
-/**
- * 
- */
 package Presentacion.GUITaller;
-import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -11,21 +8,11 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Presentacion.Generales.JBotonMenu;
 import Presentacion.Generales.VentanaEstandar;
-/*
- * crearFactura
- * imprimirFactura
- * introducirMatricula si existe se puede modificar datos, si no se añaden
- * ModificarFicha
- */
-
 public class GUI_Taller{
 
 	private static GUI_Taller instance = null;

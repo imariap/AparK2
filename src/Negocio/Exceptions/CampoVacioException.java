@@ -1,6 +1,7 @@
 package Negocio.Exceptions;
 
 public class CampoVacioException extends Exception {
+	private static final long serialVersionUID = 1L;
 	private String campo;
 	
 	public CampoVacioException(String campo){
