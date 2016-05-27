@@ -12,7 +12,7 @@ import java.awt.event.FocusListener;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
-import javax.swing.JButton;
+import Principal.JBotonMenu;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -53,8 +53,8 @@ class GUI_CrearFactura{
 	private JTextField txt_nombrepieza;
 	private JTextField txt_preciopieza;
 	
-	private JButton bt_guardar;
-	private JButton bt_cancelar;
+	private JBotonMenu bt_guardar;
+	private JBotonMenu bt_cancelar;
 	private JFrame frame;
 	JScrollPane scrollPane;
 	
@@ -103,8 +103,8 @@ class GUI_CrearFactura{
         panelPiezas.add(lb_preciopieza);    
         panelPiezas.add(txt_preciopieza);		
         
-        JButton bt_anadirPieza = new JButton();
-        bt_anadirPieza.setText("Añadir pieza");
+        JBotonMenu bt_anadirPieza = new JBotonMenu("Añadir pieza");
+        //bt_anadirPieza.setText();
         bt_anadirPieza.addActionListener(new ActionListener() {
 			
 			@Override
@@ -204,8 +204,8 @@ class GUI_CrearFactura{
 			}
 		});
     	
-    	bt_guardar = new JButton("Guardar");
-		bt_cancelar = new JButton("Cancelar");
+    	bt_guardar = new JBotonMenu("Guardar");
+		bt_cancelar = new JBotonMenu("Cancelar");
 				
 		gbc.anchor = GridBagConstraints.EAST;
 		gbc.gridx = 0; gbc.gridy = 0;
@@ -299,7 +299,7 @@ class GUI_CrearFactura{
 			}
 		});
 		
-		frame = new VentanaEstandar(miPanel, "iconoTaller.png");
+		frame = new VentanaEstandar(miPanel, "icoTaller.png");
 		
 		frame.getRootPane().setDefaultButton(bt_guardar);
 	}

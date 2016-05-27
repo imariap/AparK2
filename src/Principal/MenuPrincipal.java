@@ -59,8 +59,9 @@ public class MenuPrincipal {
 		
 		// JLabels del formulario
 		JLabel lb_1 = new JLabel("¡Bienvenido a ApparK2!");
-		JLabel lb_2 = new JLabel("Por favor, seleccione una opcón del menú de la izquierda.");
-		
+		JLabel lb_2 = new JLabel("Por favor, seleccione una opción del menú de la izquierda.");
+		lb_1.setFont(new java.awt.Font("Arial", 1, 13));
+		lb_2.setFont(new java.awt.Font("Arial", 1, 13));
 		
 		// Añadimos todos los componentes a nuestro JPanel usando el Layout que hayamos definido
 		gbc.gridx = 0; gbc.gridy = 0;
@@ -71,7 +72,7 @@ public class MenuPrincipal {
 		
 
 		// Creamos la instancia de ventana estandar pasandole como contenido nuestro panel central	
-		frame = new VentanaEstandar(miPanel, "iconoInicio.png");
+		frame = new VentanaEstandar(miPanel, "iconoIni.png");
 	}
 	
 	public void crearListeners(){

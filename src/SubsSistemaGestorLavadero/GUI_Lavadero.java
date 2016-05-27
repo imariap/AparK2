@@ -11,7 +11,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
+import Principal.JBotonMenu;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -82,7 +82,7 @@ public class GUI_Lavadero {
 		
 
 		// Creamos la instancia de ventana estandar pasandole como contenido nuestro panel central
-		frame = new VentanaEstandar(miPanel, "iconoLavadero.png");
+		frame = new VentanaEstandar(miPanel, "icoLavadero.png");
 	}
 	
 	public void crearListeners(){

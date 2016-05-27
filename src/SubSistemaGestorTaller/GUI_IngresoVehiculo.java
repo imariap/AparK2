@@ -8,13 +8,14 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
+import Principal.JBotonMenu;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Principal.JBotonMenu;
 import Principal.MenuPrincipal;
 import Principal.TransferTaller;
 import Principal.VentanaEstandar;
@@ -38,8 +39,8 @@ class GUI_IngresoVehiculo{
 	private JTextField txt_telefono;
 	private JTextField txt_observaciones;
 	
-	private JButton bt_guardar;
-	private JButton bt_cancelar;
+	private JBotonMenu bt_guardar;
+	private JBotonMenu bt_cancelar;
 	
 	private JFrame frame;
 	
@@ -87,8 +88,8 @@ class GUI_IngresoVehiculo{
 		txt_observaciones.setPreferredSize( new Dimension( 200, 24 ) );
 		
 		
-		bt_guardar = new JButton("Guardar");
-		bt_cancelar = new JButton("Cancelar");
+		bt_guardar = new JBotonMenu("Guardar");
+		bt_cancelar = new JBotonMenu("Cancelar");
 		
 		gbc.anchor = GridBagConstraints.EAST;
 		
@@ -167,7 +168,7 @@ class GUI_IngresoVehiculo{
 			}
 		});
 				
-		frame = new VentanaEstandar(miPanel, "iconoTaller.png");
+		frame = new VentanaEstandar(miPanel, "icoTaller.png");
 		
 		frame.getRootPane().setDefaultButton(bt_guardar);
 	}

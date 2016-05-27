@@ -16,9 +16,10 @@ public class JBotonMenu extends JButton {
 		super(msg);
 		this.setBorder(BorderFactory.createMatteBorder(2,2,2,2, colorNaraja));
 		this.setFocusPainted(false);
+		//this.setSize(new Dimension(5, 5));
 		this.setBackground(Color.white);
 		this.setForeground(colorGris);
-		this.setPreferredSize(new Dimension(200, 50));
+		this.setPreferredSize(new Dimension(100, 40));
 		this.setCursor(new Cursor(Cursor.HAND_CURSOR));
 	}
 }

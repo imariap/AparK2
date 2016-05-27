@@ -8,7 +8,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
+import Principal.JBotonMenu;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -37,7 +37,7 @@ public class GUI_SeleccionarTipo {
 	private JMyComboBox op_cristales;
 	private JMyComboBox op_llantas;
 	private JFrame frame;
-	JButton bt_iniciarLavado;
+	JBotonMenu bt_iniciarLavado;
 	private SwingWorker worker;
 
 	public GUI_SeleccionarTipo() {
@@ -60,7 +60,7 @@ public class GUI_SeleccionarTipo {
 		// Estilo del JPanel
 		root.setBackground(Color.WHITE);
 
-		bt_iniciarLavado = new JButton("Iniciar lavado");
+		bt_iniciarLavado = new JBotonMenu("Iniciar lavado");
 		lb_tipoAgua = new JLabel("Tipo de agua");
 		lb_tipoLavado = new JLabel("Tipo de lavado");
 		lb_cristales = new JLabel("Cristales");
@@ -132,7 +132,7 @@ public class GUI_SeleccionarTipo {
 		gbc.gridy = 4;
 		root.add(bt_iniciarLavado, gbc);
 
-		frame = new VentanaEstandar(root, "iconoLavadero.png");
+		frame = new VentanaEstandar(root, "icoLavadero.png");
 
 	}
 

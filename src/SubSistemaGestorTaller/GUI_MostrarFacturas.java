@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 import javax.sound.sampled.ReverbType;
 import javax.swing.DefaultListModel;
-import javax.swing.JButton;
+import Principal.JBotonMenu;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -54,9 +54,9 @@ class GUI_MostrarFacturas{
 	private JLabel txt_nombrepieza;
 	private JLabel txt_preciopieza;
 	
-	private JButton bt_anterior;
-	private JButton bt_siguiente;
-	private JButton bt_volver;
+	private JBotonMenu bt_anterior;
+	private JBotonMenu bt_siguiente;
+	private JBotonMenu bt_volver;
 	private JFrame frame;
 	private JScrollPane scrollPane;
 	
@@ -126,9 +126,9 @@ class GUI_MostrarFacturas{
     	txt_total = new JLabel();
     	txt_nombrereparacion = new JLabel();
     	
-    	bt_anterior = new JButton("Anterior");
-		bt_siguiente = new JButton("Siguiente");
-		bt_volver = new JButton("Volver");
+    	bt_anterior = new JBotonMenu("Anterior");
+		bt_siguiente = new JBotonMenu("Siguiente");
+		bt_volver = new JBotonMenu("Volver");
 		
 		gbc.gridx = 0; gbc.gridy = 0; gbc.fill = GridBagConstraints.BOTH;
 		root.add(lb_nombre, gbc);
@@ -252,7 +252,7 @@ class GUI_MostrarFacturas{
 			}
 		});
 		
-		frame = new VentanaEstandar(root, "iconoTaller.png");
+		frame = new VentanaEstandar(root, "icoTaller.png");
 	}
 	
 	public void setVisible(boolean x){

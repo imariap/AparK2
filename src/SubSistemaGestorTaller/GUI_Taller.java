@@ -83,11 +83,11 @@ public class GUI_Taller{
 		miPanel.setBackground(Color.WHITE);
 		
 		bt_registrarIngreso = new JBotonMenu("Registrar ingreso de vehiculo");
-	//	bt_registrarIngreso.setPreferredSize(new Dimension(200, 50));
+		bt_registrarIngreso.setPreferredSize(new Dimension(200, 50));
 		bt_modificarFicha = new JBotonMenu("Ver/Modificar ficha de vehiculo");
-	//	bt_modificarFicha.setPreferredSize(new Dimension(200, 50));
+		bt_modificarFicha.setPreferredSize(new Dimension(200, 50));
 		bt_crearFactura = new JBotonMenu("Facturar servicio prestado");
-	//	bt_crearFactura.setPreferredSize(new Dimension(200, 50));
+		bt_crearFactura.setPreferredSize(new Dimension(200, 50));
 		
 		crearListeners();
 		
@@ -104,7 +104,7 @@ public class GUI_Taller{
 		
 
 		// Creamos la instancia de ventana estandar pasandole como contenido nuestro panel central
-		frame = new VentanaEstandar(miPanel, "iconoTaller.png");
+		frame = new VentanaEstandar(miPanel, "icoTaller.png");
 	}
 	
 	public void crearListeners(){

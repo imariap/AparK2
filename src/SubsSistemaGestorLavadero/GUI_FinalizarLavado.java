@@ -8,7 +8,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
+import Principal.JBotonMenu;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -28,8 +28,8 @@ public class GUI_FinalizarLavado {
 		private JPanel root;
 		private JLabel lb;
 		private JLabel lb2;
-		private JButton bt_tarjeta;
-		private JButton bt_efectivo;
+		private JBotonMenu bt_tarjeta;
+		private JBotonMenu bt_efectivo;
 		private JFrame frame;
 		
 		public GUI_FinalizarLavado(){
@@ -56,8 +56,8 @@ public class GUI_FinalizarLavado {
 		lb = new JLabel("Su lavado ha finalizado correctamente.");
 		lb2 = new JLabel("El importe del lavado es " + Gestor_Lavadero.getInstance().getPrecioTotal() + " €");
 		
-		bt_tarjeta = new JButton("Tarjeta");
-		bt_efectivo = new JButton("Efectivo");
+		bt_tarjeta = new JBotonMenu("Tarjeta");
+		bt_efectivo = new JBotonMenu("Efectivo");
 
 		// Añadimos todos los componentes a nuestro JPanel usando el Layout que
 		// hayamos definido
@@ -79,7 +79,7 @@ public class GUI_FinalizarLavado {
 		root.add(bt_efectivo, gbc);
 
 		crearListener();
-		frame = new VentanaEstandar(root, "iconoLavadero.png");
+		frame = new VentanaEstandar(root, "icoLavadero.png");
 
 	}
 		public void crearListener(){

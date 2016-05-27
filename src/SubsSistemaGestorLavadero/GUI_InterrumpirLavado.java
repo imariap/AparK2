@@ -9,7 +9,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
+import Principal.JBotonMenu;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -30,8 +30,8 @@ public class GUI_InterrumpirLavado {
 		private JPanel root;
 		private JLabel label;
 		private JProgressBar bar;
-		private JButton bt;
-		private JButton bt2;
+		private JBotonMenu bt;
+		private JBotonMenu bt2;
 		private JFrame frame;
 		
 		public JProgressBar getBar() {
@@ -64,8 +64,8 @@ public class GUI_InterrumpirLavado {
 			
 			label = new JLabel("¿Está seguro que desea interrumpir el lavado?");
 			bar = new JProgressBar();
-			bt = new JButton("Interrumpir");
-			bt2 = new JButton("Volver");
+			bt = new JBotonMenu("Interrumpir");
+			bt2 = new JBotonMenu("Volver");
 			
 			// Añadimos todos los componentes a nuestro JPanel usando el Layout que hayamos definido
 			gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 2;
@@ -81,7 +81,7 @@ public class GUI_InterrumpirLavado {
 			root.add(bt2, gbc);
 			
 			crearListener();
-			frame = new VentanaEstandar(root, "iconoLavadero.png");
+			frame = new VentanaEstandar(root, "icoLavadero.png");
 		}
 		public void crearListener(){
 			bt.addActionListener(new ActionListener() {

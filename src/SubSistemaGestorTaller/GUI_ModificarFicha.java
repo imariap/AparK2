@@ -8,7 +8,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
+import Principal.JBotonMenu;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -39,9 +39,9 @@ class GUI_ModificarFicha{
 	private JTextField txt_telefono;
 	private JTextField txt_observaciones;
 	
-	private JButton bt_verFacturas;
-	private JButton bt_guardar;
-	private JButton bt_cancelar;
+	private JBotonMenu bt_verFacturas;
+	private JBotonMenu bt_guardar;
+	private JBotonMenu bt_cancelar;
 	
 	private JFrame frame;
 	
@@ -91,9 +91,9 @@ class GUI_ModificarFicha{
 		txt_observaciones.setPreferredSize( new Dimension( 200, 24 ) );
 		
 		
-		bt_verFacturas = new JButton("Ver facturas");
-		bt_guardar = new JButton("Guardar");
-		bt_cancelar = new JButton("Cancelar");
+		bt_verFacturas = new JBotonMenu("Ver facturas");
+		bt_guardar = new JBotonMenu("Guardar");
+		bt_cancelar = new JBotonMenu("Cancelar");
 		
 		gbc.anchor = GridBagConstraints.EAST;
 		
@@ -196,7 +196,7 @@ class GUI_ModificarFicha{
 			}
 		});
 		
-		frame = new VentanaEstandar(miPanel, "iconoTaller.png");
+		frame = new VentanaEstandar(miPanel, "icoTaller.png");
 		
 		frame.getRootPane().setDefaultButton(bt_guardar);
 	}

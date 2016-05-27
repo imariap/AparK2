@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
+import Principal.JBotonMenu;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -29,7 +29,7 @@ class GUI_BuscarParaModificarFicha{
 	private JPanel root;
 	private JLabel lb_matricula;
 	private JTextField txt_matricula;
-	private JButton bt_siguiente;
+	private JBotonMenu bt_siguiente;
 	private JFrame frame;
 	
 	public GUI_BuscarParaModificarFicha(){
@@ -54,7 +54,7 @@ class GUI_BuscarParaModificarFicha{
 		lb_matricula = new JLabel("Matricula:");
 		txt_matricula = new JTextField();
 		txt_matricula.setPreferredSize( new Dimension( 200, 24 ) );
-		bt_siguiente = new JButton("Buscar");
+		bt_siguiente = new JBotonMenu("Buscar");
 		
 		crearListener();
 		
@@ -67,7 +67,7 @@ class GUI_BuscarParaModificarFicha{
 		gbc.gridx = 0; gbc.gridy = 2;
 		miPanel.add(bt_siguiente, gbc);		
 
-		frame = new VentanaEstandar(miPanel, "iconoTaller.png");
+		frame = new VentanaEstandar(miPanel, "icoTaller.png");
 		
 		frame.getRootPane().setDefaultButton(bt_siguiente);
 		
@@ -100,7 +100,7 @@ class GUI_BuscarParaModificarFicha{
 			    "¡Error!",
 			    JOptionPane.OK_OPTION);*/
 		
-		new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon("warning.png")).setVisible(true);
+		new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon("warning2.png")).setVisible(true);
 		
 		/*JOptionPane.showMessageDialog(frame,
 			    texto,
