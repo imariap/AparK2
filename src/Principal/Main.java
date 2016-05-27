@@ -1,5 +1,7 @@
 package Principal;
 
+import Presentacion.Generales.MenuPrincipal;
+
 public class Main {
 
 	public static void main(String[] args){
