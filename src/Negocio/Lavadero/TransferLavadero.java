@@ -1,5 +1,6 @@
 package Negocio.Lavadero;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import Negocio.Transfer.Transfer;
  * @author Ivan
  * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public class TransferLavadero implements Transfer {
+public class TransferLavadero implements Transfer, Serializable {
 	
 	public ArrayList<Double> getPrecioTipoAgua() {
 		return PrecioTipoAgua;

@@ -1,7 +1,6 @@
 package Almacen;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -28,7 +27,7 @@ public class ALMACEN{
 		datosTaller = new ArrayList<TransferTaller>();
 		preciosLavadero = new TransferLavadero();
 		
-		//Datos de prueba para el lavadero
+		/* Datos que contiene la base de datos para el lavadero
 		preciosLavadero.getPrecioTipoAgua().add(1.0); // Agua fria
 		preciosLavadero.getPrecioTipoAgua().add(1.5); // Agua caliente
 		preciosLavadero.getPrecioTipoLavado().add(3.0); // Lavado rapido
@@ -38,7 +37,7 @@ public class ALMACEN{
 		preciosLavadero.getPrecioCristales().add(1.5); // Cristales - quimico
 		preciosLavadero.getPrecioLlantas().add(0.0); // Llantas - nada
 		preciosLavadero.getPrecioLlantas().add(1.0); // Llantas - eco
-		preciosLavadero.getPrecioLlantas().add(1.5); // Llantas - quimico
+		preciosLavadero.getPrecioLlantas().add(1.5); // Llantas - quimico */
 		
 		// Cargamos todos los datos al inicializarlo
 		FileInputStream fis;
@@ -46,6 +45,7 @@ public class ALMACEN{
 			fis = new FileInputStream(nombreArchivo);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			datosTaller = (ArrayList<TransferTaller>) ois.readObject();
+			preciosLavadero = (TransferLavadero) ois.readObject();
 			ois.close();
 		} catch (ClassNotFoundException | IOException e) {
 			// TODO Auto-generated catch block
@@ -67,6 +67,7 @@ public class ALMACEN{
 			fout = new FileOutputStream(nombreArchivo);
 			ObjectOutputStream oos = new ObjectOutputStream(fout);
 			oos.writeObject(datosTaller);
+			oos.writeObject(preciosLavadero);
 			oos.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
