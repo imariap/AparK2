@@ -130,7 +130,7 @@ public class GUI_SeleccionarTipo {
 		gbc.gridy = 4;
 		root.add(bt_iniciarLavado, gbc);
 
-		frame = new VentanaEstandar(root, "icoLavadero.png");
+		frame = new VentanaEstandar(root, "images/icoLavadero.png");
 
 	}
 
@@ -174,7 +174,7 @@ public class GUI_SeleccionarTipo {
 	}
 	
 	public void mostrarMensaje(String texto){
-		new JDialogOKOption(frame, texto, "Atención", new ImageIcon("warning2.png")).setVisible(true);
+		new JDialogOKOption(frame, texto, "Atención", new ImageIcon("images/warning2.png")).setVisible(true);
 	}
 
 }

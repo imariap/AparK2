@@ -65,7 +65,7 @@ public class GUI_Taller{
 		
 
 		// Creamos la instancia de ventana estandar pasandole como contenido nuestro panel central
-		frame = new VentanaEstandar(miPanel, "icoTaller.png");
+		frame = new VentanaEstandar(miPanel, "images/icoTaller.png");
 	}
 	
 	public void crearListeners(){

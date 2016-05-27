@@ -51,7 +51,7 @@ public class VentanaEstandar extends JFrame{
          f.add(panelCentral);
          
          // Label que contiene el logo en el panel de opciones (izquierdo)
-         JLabel labelLogoOpciones = new JLabel(new ImageIcon("logoOpciones.png"));
+         JLabel labelLogoOpciones = new JLabel(new ImageIcon("images/logoOpciones.png"));
          
          // Añadimos al panel de opciones (iquierdo) el logo y el panel con los botones de opciones
          panelOpciones.add(labelLogoOpciones, BorderLayout.NORTH);
@@ -91,7 +91,7 @@ public class VentanaEstandar extends JFrame{
 
 		JPanel jp = new JPanel(new BorderLayout());
 		jp.setBackground(Color.WHITE);
-		JLabel lb = new JLabel(new ImageIcon("logoPrincipal.png"));	
+		JLabel lb = new JLabel(new ImageIcon("images/logoPrincipal.png"));	
 		JLabel lbI = new JLabel(new ImageIcon(icono));	
 		jp.add(lbI, BorderLayout.WEST);
 		jp.add(lb, BorderLayout.EAST);
@@ -105,7 +105,7 @@ public class VentanaEstandar extends JFrame{
 		jp.setLayout(new GridLayout(4, 1));		
 		jp.setBackground(colorNaraja);
 		
-		ImageIcon ii_inicio = new ImageIcon("inicio.png");
+		ImageIcon ii_inicio = new ImageIcon("images/inicio.png");
 		JButton b1 = botonNaranja(ii_inicio);
 		b1.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		b1.addActionListener(new ActionListener() {
@@ -119,7 +119,7 @@ public class VentanaEstandar extends JFrame{
 		});
 		jp.add(b1);
 		
-		ImageIcon ii_taller = new ImageIcon("taller.png");
+		ImageIcon ii_taller = new ImageIcon("images/taller.png");
 		JButton b2 = botonNaranja(ii_taller);
 		b2.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		b2.addActionListener(new ActionListener() {
@@ -133,7 +133,7 @@ public class VentanaEstandar extends JFrame{
 		});
 		jp.add(b2);
 		
-		ImageIcon ii_lavadero = new ImageIcon("lavadero.png");
+		ImageIcon ii_lavadero = new ImageIcon("images/lavadero.png");
 		JButton b3 = botonNaranja(ii_lavadero);
 		b3.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		b3.addActionListener(new ActionListener() {
@@ -147,7 +147,7 @@ public class VentanaEstandar extends JFrame{
 		});
 		jp.add(b3);
 		
-		ImageIcon ii_salir = new ImageIcon("salir.png");
+		ImageIcon ii_salir = new ImageIcon("images/salir.png");
 		JButton b4 = botonNaranja(ii_salir);
 		b4.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		b4.addActionListener(new ActionListener() {

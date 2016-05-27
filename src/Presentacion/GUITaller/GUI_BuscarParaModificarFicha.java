@@ -65,7 +65,7 @@ public class GUI_BuscarParaModificarFicha{
 		gbc.gridx = 0; gbc.gridy = 2;
 		miPanel.add(bt_siguiente, gbc);		
 
-		frame = new VentanaEstandar(miPanel, "icoTaller.png");
+		frame = new VentanaEstandar(miPanel, "images/icoTaller.png");
 		
 		frame.getRootPane().setDefaultButton(bt_siguiente);
 		
@@ -92,7 +92,7 @@ public class GUI_BuscarParaModificarFicha{
 	}
 	
 	public void mostrarAlerta(String texto){
-		new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon("warning2.png")).setVisible(true);
+		new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon("images/warning2.png")).setVisible(true);
 	}
 	
 }

@@ -245,7 +245,7 @@ public class GUI_MostrarFacturas{
 			}
 		});
 		
-		frame = new VentanaEstandar(root, "icoTaller.png");
+		frame = new VentanaEstandar(root, "images/icoTaller.png");
 	}
 	
 	public void setVisible(boolean x){

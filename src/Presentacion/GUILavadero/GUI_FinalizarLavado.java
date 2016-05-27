@@ -76,7 +76,7 @@ public class GUI_FinalizarLavado {
 		root.add(bt_efectivo, gbc);
 
 		crearListener();
-		frame = new VentanaEstandar(root, "icoLavadero.png");
+		frame = new VentanaEstandar(root, "images/icoLavadero.png");
 
 	}
 		public void crearListener(){
@@ -111,7 +111,7 @@ public class GUI_FinalizarLavado {
 		}
 		
 		public void mostrarMensaje(String texto){
-			new JDialogOKOption(frame, texto, "Atención", new ImageIcon("warning2.png")).setVisible(true);
+			new JDialogOKOption(frame, texto, "Atención", new ImageIcon("images/warning2.png")).setVisible(true);
 		}
 		
 		

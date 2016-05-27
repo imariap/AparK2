@@ -196,7 +196,7 @@ public class GUI_ModificarFicha{
 			}
 		});
 		
-		frame = new VentanaEstandar(miPanel, "icoTaller.png");
+		frame = new VentanaEstandar(miPanel, "images/icoTaller.png");
 		
 		frame.getRootPane().setDefaultButton(bt_guardar);
 	}
@@ -225,11 +225,11 @@ public class GUI_ModificarFicha{
 	}
 	
 	public void mostrarAlerta(String texto){
-		new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon("warning2.png")).setVisible(true);
+		new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon("images/warning2.png")).setVisible(true);
 	}
 	
 	public void mostrarMensaje(String texto){
-		new JDialogOKOption(frame, texto, "Atención", new ImageIcon("warning2.png")).setVisible(true);
+		new JDialogOKOption(frame, texto, "Atención", new ImageIcon("images/warning2.png")).setVisible(true);
 	}
 
 }

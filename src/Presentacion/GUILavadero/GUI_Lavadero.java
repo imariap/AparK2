@@ -71,7 +71,7 @@ public class GUI_Lavadero {
 		
 
 		// Creamos la instancia de ventana estandar pasandole como contenido nuestro panel central
-		frame = new VentanaEstandar(miPanel, "icoLavadero.png");
+		frame = new VentanaEstandar(miPanel, "images/icoLavadero.png");
 	}
 	
 	public void crearListeners(){
@@ -129,7 +129,7 @@ public class GUI_Lavadero {
 	}
 	
 	public void mostrarAlerta(String texto){
-		new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon("warning2.png")).setVisible(true);
+		new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon("images/warning2.png")).setVisible(true);
 	}
 	
 	public void setVisible(boolean x){

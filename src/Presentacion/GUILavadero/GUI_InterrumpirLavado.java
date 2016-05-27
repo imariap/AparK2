@@ -77,7 +77,7 @@ public class GUI_InterrumpirLavado {
 			root.add(bt2, gbc);
 			
 			crearListener();
-			frame = new VentanaEstandar(root, "icoLavadero.png");
+			frame = new VentanaEstandar(root, "images/icoLavadero.png");
 		}
 		public void crearListener(){
 			bt.addActionListener(new ActionListener() {
@@ -103,11 +103,11 @@ public class GUI_InterrumpirLavado {
 		}
 		
 		public void mostrarAlerta(String texto){
-			new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon("warning2.png")).setVisible(true);
+			new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon("images/warning2.png")).setVisible(true);
 		}
 		
 		public void mostrarMensaje(String texto){
-			new JDialogOKOption(frame, texto, "Atención", new ImageIcon("warning2.png")).setVisible(true);
+			new JDialogOKOption(frame, texto, "Atención", new ImageIcon("images/warning2.png")).setVisible(true);
 		}
 		
 	
