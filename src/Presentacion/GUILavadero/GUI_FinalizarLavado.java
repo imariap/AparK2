@@ -84,7 +84,7 @@ public class GUI_FinalizarLavado {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mostrarMensaje("Introduzca su tarjeta");
+				mostrarAviso("Introduzca su tarjeta");
 				Gestor_Lavadero.getInstance().pagarLavado();
 				mostrarMensaje("Pago correcto. ¡Gracias por su visita!");
 				setVisible(false);
@@ -96,7 +96,7 @@ public class GUI_FinalizarLavado {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					mostrarMensaje("Por favor, pase por caja para finalizar el pago.");
+					mostrarAviso("Por favor, pase por caja para finalizar el pago.");
 					Gestor_Lavadero.getInstance().pagarLavado();
 					setVisible(false);
 					GUI_Lavadero.getInstance().setVisible(true);
@@ -112,10 +112,12 @@ public class GUI_FinalizarLavado {
 		}
 		
 		public void mostrarMensaje(String texto){
-			new JDialogOKOption(frame, texto, "Atención", new ImageIcon("images/warning2.png")).setVisible(true);
+			new JDialogOKOption(frame, texto, "Confirmación", new ImageIcon("images/iconoConfirmacion.png")).setVisible(true);
 		}
 		
-		
+		public void mostrarAviso(String texto){
+			new JDialogOKOption(frame, texto, "Atención", new ImageIcon("images/warning2.png")).setVisible(true);
+		}
 		
 	
 }

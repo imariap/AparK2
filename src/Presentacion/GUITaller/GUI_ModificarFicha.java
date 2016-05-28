@@ -230,7 +230,7 @@ public class GUI_ModificarFicha{
 	}
 	
 	public void mostrarMensaje(String texto){
-		new JDialogOKOption(frame, texto, "Atención", new ImageIcon("images/warning2.png")).setVisible(true);
+		new JDialogOKOption(frame, texto, "Confirmación", new ImageIcon("images/iconoConfirmacion.png")).setVisible(true);
 	}
 
 }
