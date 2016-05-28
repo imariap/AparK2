@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,6 +16,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+import Presentacion.Controlador.Gestor_Lavadero;
+import Presentacion.GUILavadero.GUI_Lavadero;
 
 public class JDialogOKOption extends JDialog {
     private static final long serialVersionUID = 1L;
@@ -42,7 +46,7 @@ public class JDialogOKOption extends JDialog {
     	lb_titulo.setFont(new java.awt.Font("Arial", 1, 17));
     	lb_titulo.setForeground(Color.WHITE);
     	lb_icono = new JLabel(icono);
-    	lb_icono.setPreferredSize(new Dimension(50 ,50));
+    	lb_icono.setPreferredSize(new Dimension(300 ,50));
     	    	
     	lb_texto = new javax.swing.JLabel(texto);
     	lb_texto.setFont(new java.awt.Font("Arial", 1, 12));
@@ -88,10 +92,15 @@ public class JDialogOKOption extends JDialog {
         this.add(panel);
         this.setUndecorated(true);
         this.pack();
-        this.setLocationRelativeTo(null);
+        //this.setLocationRelativeTo(null);
+        Gestor_Lavadero.getInstance();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (dim.width+300)/2-this.getSize().width/2;
+        int y = dim.height/2-this.getSize().height/2;
+        this.setLocation(x, y);
+        this.setMinimumSize(new Dimension(300, 100));
         this.setAlwaysOnTop(true);
         this.setModalityType(ModalityType.APPLICATION_MODAL);
-        //this.setVisible(true);
     }
 
 }

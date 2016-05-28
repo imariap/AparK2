@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -143,10 +144,12 @@ public class JDialogPiezas extends JDialog {
            this.add(panel);
            this.setUndecorated(true);
            this.pack();
-           this.setLocationRelativeTo(null);
+           Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+           int x = (dim.width+300)/2-this.getSize().width/2;
+           int y = dim.height/2-this.getSize().height/2;
+           this.setLocation(x, y);
            this.setAlwaysOnTop(true);
            this.setModalityType(ModalityType.APPLICATION_MODAL);
-           //this.setVisible(true);        
     }
     
     public ArrayList<String> showDialog(){

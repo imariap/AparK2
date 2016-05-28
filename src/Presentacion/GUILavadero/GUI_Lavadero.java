@@ -20,7 +20,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class GUI_Lavadero {
+public class GUI_Lavadero extends JPanel{
 	private static GUI_Lavadero instance = null;
 	private JBotonMenu bt_iniciarLavado;
 	private JBotonMenu bt_interrumpirLavado;
@@ -38,7 +38,7 @@ public class GUI_Lavadero {
 		}
 		return instance;
 	}
-	
+
 	
 	private void create() {
 		// Declaracion del JPanel y su Layout
