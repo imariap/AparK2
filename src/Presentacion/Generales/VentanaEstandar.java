@@ -107,6 +107,7 @@ public class VentanaEstandar extends JFrame{
 		
 		ImageIcon ii_inicio = new ImageIcon("images/inicio.png");
 		JButton b1 = botonNaranja(ii_inicio);
+		b1.setBorder(BorderFactory.createMatteBorder(1,1,0,1, Color.WHITE));
 		b1.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		b1.addActionListener(new ActionListener() {
 			
@@ -122,6 +123,7 @@ public class VentanaEstandar extends JFrame{
 		ImageIcon ii_taller = new ImageIcon("images/taller.png");
 		JButton b2 = botonNaranja(ii_taller);
 		b2.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		b2.setBorder(BorderFactory.createMatteBorder(1,1,0,1, Color.WHITE));
 		b2.addActionListener(new ActionListener() {
 			
 			@Override
@@ -136,6 +138,7 @@ public class VentanaEstandar extends JFrame{
 		ImageIcon ii_lavadero = new ImageIcon("images/lavadero.png");
 		JButton b3 = botonNaranja(ii_lavadero);
 		b3.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		b3.setBorder(BorderFactory.createMatteBorder(1,1,0,1, Color.WHITE));
 		b3.addActionListener(new ActionListener() {
 			
 			@Override
