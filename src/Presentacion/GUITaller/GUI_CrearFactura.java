@@ -18,6 +18,7 @@ import Negocio.Taller.TransferTaller;
 import Presentacion.Controlador.Gestor_de_Taller;
 import Presentacion.Generales.JBotonMenu;
 import Presentacion.Generales.JDialogOKOption;
+import Presentacion.Generales.JDialogPiezas;
 import Presentacion.Generales.VentanaEstandar;
 
 import javax.swing.ImageIcon;
@@ -31,7 +32,6 @@ import javax.swing.JTextField;
 
 public class GUI_CrearFactura{
 
-	private JPanel panelPiezas;
 	@SuppressWarnings("rawtypes")
 	private JList listaPiezas;
 	private JLabel lb_nombre;
@@ -41,8 +41,6 @@ public class GUI_CrearFactura{
 	private JLabel lb_ivaporc;
 	private JLabel lb_iva;
 	private JLabel lb_total;
-	private JLabel lb_nombrepieza;
-	private JLabel lb_preciopieza;
 	
 	private JTextField txt_nombre;
 	private JTextField txt_importe;
@@ -50,8 +48,6 @@ public class GUI_CrearFactura{
 	private JTextField txt_ivaporc;
 	private JTextField txt_iva;
 	private JTextField txt_total;
-	private JTextField txt_nombrepieza;
-	private JTextField txt_preciopieza;
 	
 	private JBotonMenu bt_guardar;
 	private JBotonMenu bt_cancelar;
@@ -91,42 +87,29 @@ public class GUI_CrearFactura{
         // Estilo del JPanel
 		miPanel.setBackground(Color.WHITE);
 				
-				
-		/* Panel para piezas */
-		panelPiezas = new JPanel();
-        lb_nombrepieza = new JLabel("Nombre:");
-        lb_preciopieza = new JLabel("Precio:");
-        txt_nombrepieza = new JTextField(10);
-        txt_preciopieza = new JTextField(5);
-        panelPiezas.add(lb_nombrepieza);    
-        panelPiezas.add(txt_nombrepieza);
-        panelPiezas.add(lb_preciopieza);    
-        panelPiezas.add(txt_preciopieza);		
-        
-        JBotonMenu bt_anadirPieza = new JBotonMenu("Añadir pieza");
+		JBotonMenu bt_anadirPieza = new JBotonMenu("Añadir pieza");
         //bt_anadirPieza.setText();
         bt_anadirPieza.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				txt_nombrepieza.setText("");
-				txt_preciopieza.setText("");
-				int result = JOptionPane.showConfirmDialog(frame, panelPiezas, 
-			               "Introducir pieza:", JOptionPane.OK_CANCEL_OPTION);
-			      if (result == JOptionPane.OK_OPTION) {
-			         TransferPieza p = new TransferPieza();
-			         p.setNombre(txt_nombrepieza.getText());
-			         if(txt_nombrepieza.getText().isEmpty()){
+				
+				ArrayList<String> campos = new JDialogPiezas(frame, "Introducir pieza:", "Introducir nueva pieza:", new ImageIcon("images/iconoPiezas.png")).showDialog();
+				if(campos.size() > 0){
+			         
+			         if(campos.get(0).isEmpty()){
 			        	 mostrarAlerta("El campo 'Nombre' de la pieza no puede estar vacio.");
 			        	 bt_anadirPieza.doClick();
 			         }
 			         else{
+			        	 TransferPieza p = new TransferPieza();  
+							p.setNombre(campos.get(0));
 			        	 try{
-				        	 p.setPrecio(Double.parseDouble(txt_preciopieza.getText()));
+				        	 p.setPrecio(Double.parseDouble(campos.get(1)));
 				        	 piezas.add(p);	
 					         txt_importe.setText(String.valueOf(Double.parseDouble(txt_importe.getText()) + p.getPrecio() ));
-					         model.addElement(txt_nombrepieza.getText() + ":  " + txt_preciopieza.getText() + "€");		
+					         model.addElement(campos.get(0) + ":  " + campos.get(1) + "€");		
 					         txt_iva.setText(String.format("%.2f", (Double.parseDouble(txt_importe.getText()) * Integer.parseInt(txt_ivaporc.getText()) /100) + (Double.parseDouble(txt_manodeobra.getText()) * Integer.parseInt(txt_ivaporc.getText()) /100)));
 					         txt_iva.setText(txt_iva.getText().replace(',', '.'));
 					         txt_total.setText(String.format("%.2f", Double.parseDouble(txt_importe.getText()) + Double.parseDouble(txt_manodeobra.getText()) + Double.parseDouble(txt_iva.getText())));
@@ -134,13 +117,12 @@ public class GUI_CrearFactura{
 					         miPanel.revalidate();
 					         miPanel.repaint();
 					      } catch (NumberFormatException a){
-								System.out.println(a.getMessage());
 								mostrarAlerta("El precio debe ser un número. (Ej: 12.30)");
 								bt_anadirPieza.doClick();
 							}
 				         
-			         }			         
-			      }
+			         }	
+				}
 			}
 		});
         
@@ -153,8 +135,6 @@ public class GUI_CrearFactura{
     	lb_ivaporc = new JLabel("Porcentaje de IVA (%):");	;
     	lb_iva = new JLabel("Total de IVA:");	;
     	lb_total = new JLabel("TOTAL:");	;
-    	lb_nombrepieza = new JLabel("Nombre:");	;
-    	lb_preciopieza = new JLabel("Precio:");	;
     	
     	txt_nombre = new JTextField(10);
     	txt_importe = new JTextField(10);
