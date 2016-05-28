@@ -148,7 +148,7 @@ public class GUI_IngresoVehiculo{
 				//transfer.setAverias();
 				transfer.setDNI(txt_dni.getText());
 				//transfer.setFacturas(n);
-				transfer.setMatricula(txt_matricula.getText());
+				transfer.setMatricula(txt_matricula.getText().toUpperCase());
 				transfer.setNombre(txt_nombre.getText());
 				transfer.setObservaciones(txt_observaciones.getText());
 				transfer.setTelefono(txt_telefono.getText());

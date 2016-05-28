@@ -79,7 +79,7 @@ public class Gestor_de_Taller {
 			}
 		} catch (MatriculaIncorrectaException e) {
 			// TODO Auto-generated catch block
-			GUI_BuscarParaModificarFicha.getInstance().mostrarAlerta(e.getMessage());
+			GUI_BuscarParaCrearFactura.getInstance().mostrarAlerta(e.getMessage());
 		}	
 		// end-user-code
 	}

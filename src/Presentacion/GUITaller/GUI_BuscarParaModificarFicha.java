@@ -80,7 +80,7 @@ public class GUI_BuscarParaModificarFicha{
 			 * ¿¿Tenemos que usar el transfer??
 			 * 
 			 * */
-			TransferTaller tranferTaller = new TransferTaller(txt_matricula.getText());
+			TransferTaller tranferTaller = new TransferTaller(txt_matricula.getText().toUpperCase());
 			Gestor_de_Taller.getInstance().action(1, tranferTaller);
 			}
 		});

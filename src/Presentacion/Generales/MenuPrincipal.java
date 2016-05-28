@@ -54,7 +54,7 @@ public class MenuPrincipal {
 		
 
 		// Creamos la instancia de ventana estandar pasandole como contenido nuestro panel central	
-		frame = new VentanaEstandar(miPanel, "iconoIni.png");
+		frame = new VentanaEstandar(miPanel, "images/iconoIni.png");
 	}
 	
 	public void crearListeners(){

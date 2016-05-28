@@ -79,7 +79,7 @@ public class GUI_BuscarParaCrearFactura{
 			 * ¿¿Tenemos que usar el transfer??
 			 * 
 			 * */
-			TransferTaller tranferTaller = new TransferTaller(txt_matricula.getText());
+			TransferTaller tranferTaller = new TransferTaller(txt_matricula.getText().toUpperCase());
 			Gestor_de_Taller.getInstance().FacturarServicioPrestado(tranferTaller);
 			}
 		});
