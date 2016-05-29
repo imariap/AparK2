@@ -7,10 +7,12 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import Main.Main;
 import Presentacion.Generales.JBotonMenu;
 import Presentacion.Generales.VentanaEstandar;
 public class GUI_Taller{
@@ -65,7 +67,8 @@ public class GUI_Taller{
 		
 
 		// Creamos la instancia de ventana estandar pasandole como contenido nuestro panel central
-		frame = new VentanaEstandar(miPanel, "images/icoTaller.png");
+		URL icoTaller = Main.class.getResource("/Presentacion/Images/icoTaller.png");
+		frame = new VentanaEstandar(miPanel, icoTaller);
 	}
 	
 	public void crearListeners(){

@@ -5,7 +5,11 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
+
 import javax.swing.*;
+
+import Main.Main;
 
 
 public class MenuPrincipal {
@@ -54,7 +58,8 @@ public class MenuPrincipal {
 		
 
 		// Creamos la instancia de ventana estandar pasandole como contenido nuestro panel central	
-		frame = new VentanaEstandar(miPanel, "images/iconoIni.png");
+		URL iconoIni = Main.class.getResource("/Presentacion/Images/iconoIni.png");
+		frame = new VentanaEstandar(miPanel, iconoIni);
 	}
 	
 	public void crearListeners(){

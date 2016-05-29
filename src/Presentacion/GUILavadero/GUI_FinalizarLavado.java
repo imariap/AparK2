@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 import Presentacion.Controlador.Gestor_Lavadero;
 import Presentacion.Generales.JBotonMenu;
@@ -16,6 +17,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import Main.Main;
 
 public class GUI_FinalizarLavado {
 		
@@ -76,7 +79,8 @@ public class GUI_FinalizarLavado {
 		root.add(bt_efectivo, gbc);
 
 		crearListener();
-		frame = new VentanaEstandar(root, "images/icoLavadero.png");
+		URL icoLavadero = Main.class.getResource("/Presentacion/Images/icoLavadero.png");
+		frame = new VentanaEstandar(root, icoLavadero);
 
 	}
 		public void crearListener(){
@@ -112,11 +116,13 @@ public class GUI_FinalizarLavado {
 		}
 		
 		public void mostrarMensaje(String texto){
-			new JDialogOKOption(frame, texto, "Confirmación", new ImageIcon("images/iconoConfirmacion.png")).setVisible(true);
+			URL iconoConfirmacion = Main.class.getResource("/Presentacion/Images/iconoConfirmacion.png");
+			new JDialogOKOption(frame, texto, "Confirmación", new ImageIcon(iconoConfirmacion)).setVisible(true);
 		}
 		
 		public void mostrarAviso(String texto){
-			new JDialogOKOption(frame, texto, "Atención", new ImageIcon("images/warning2.png")).setVisible(true);
+			URL warning2 = Main.class.getResource("/Presentacion/Images/warning2.png");
+			new JDialogOKOption(frame, texto, "Atención", new ImageIcon(warning2)).setVisible(true);
 		}
 		
 	

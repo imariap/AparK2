@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 import Negocio.Taller.TransferTaller;
 import Presentacion.Controlador.Gestor_de_Taller;
@@ -19,6 +20,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import Main.Main;
 
 public class GUI_IngresoVehiculo{
 	
@@ -167,7 +170,8 @@ public class GUI_IngresoVehiculo{
 			}
 		});
 				
-		frame = new VentanaEstandar(miPanel, "images/icoTaller.png");
+		URL icoTaller = Main.class.getResource("/Presentacion/Images/icoTaller.png");
+		frame = new VentanaEstandar(miPanel, icoTaller);
 		
 		frame.getRootPane().setDefaultButton(bt_guardar);
 	}
@@ -188,11 +192,13 @@ public class GUI_IngresoVehiculo{
 	}
 	
 	public void mostrarAlerta(String texto){
-		new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon("images/warning2.png")).setVisible(true);
+		URL warning2 = Main.class.getResource("/Presentacion/Images/warning2.png");
+		new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon(warning2)).setVisible(true);
 	}
 	
 	public void mostrarMensaje(String texto){
-		new JDialogOKOption(frame, texto, "Confirmación", new ImageIcon("images/iconoConfirmacion.png")).setVisible(true);
+		URL iconoConfirmacion = Main.class.getResource("/Presentacion/Images/iconoConfirmacion.png");
+		new JDialogOKOption(frame, texto, "Confirmación", new ImageIcon(iconoConfirmacion)).setVisible(true);
 	}
 
 }

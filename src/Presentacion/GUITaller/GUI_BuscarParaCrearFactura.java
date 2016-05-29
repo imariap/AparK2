@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 import Negocio.Taller.TransferTaller;
 import Presentacion.Controlador.Gestor_de_Taller;
@@ -19,6 +20,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import Main.Main;
 
 public class GUI_BuscarParaCrearFactura{
 	
@@ -64,7 +67,8 @@ public class GUI_BuscarParaCrearFactura{
 		gbc.gridx = 0; gbc.gridy = 2;
 		miPanel.add(bt_siguiente, gbc);
 
-		frame = new VentanaEstandar(miPanel, "images/icoTaller.png");
+		URL icoTaller = Main.class.getResource("/Presentacion/Images/icoTaller.png");
+		frame = new VentanaEstandar(miPanel, icoTaller);
 		
 		frame.getRootPane().setDefaultButton(bt_siguiente);
 		
@@ -92,7 +96,8 @@ public class GUI_BuscarParaCrearFactura{
 	}
 	
 	public void mostrarAlerta(String texto){
-		new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon("images/warning2.png")).setVisible(true);
+		URL warning2 = Main.class.getResource("/Presentacion/Images/warning2.png");
+		new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon(warning2)).setVisible(true);
 	}
 	
 }

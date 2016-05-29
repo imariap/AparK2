@@ -10,6 +10,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 import Presentacion.Controlador.Gestor_Lavadero;
 import Presentacion.Generales.JBotonMenu;
@@ -19,6 +20,8 @@ import Presentacion.Generales.VentanaEstandar;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import Main.Main;
 
 public class GUI_Lavadero extends JPanel{
 	private static GUI_Lavadero instance = null;
@@ -71,7 +74,8 @@ public class GUI_Lavadero extends JPanel{
 		
 
 		// Creamos la instancia de ventana estandar pasandole como contenido nuestro panel central
-		frame = new VentanaEstandar(miPanel, "images/icoLavadero.png");
+		URL icoLavadero = Main.class.getResource("/Presentacion/Images/icoLavadero.png");
+		frame = new VentanaEstandar(miPanel, icoLavadero);
 	}
 	
 	public void crearListeners(){
@@ -129,7 +133,8 @@ public class GUI_Lavadero extends JPanel{
 	}
 	
 	public void mostrarAlerta(String texto){
-		new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon("images/warning2.png")).setVisible(true);
+		URL warning2 = Main.class.getResource("/Presentacion/Images/warning2.png");
+		new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon(warning2)).setVisible(true);
 	}
 	
 	public void setVisible(boolean x){
