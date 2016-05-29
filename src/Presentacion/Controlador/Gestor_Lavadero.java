@@ -97,7 +97,7 @@ public class Gestor_Lavadero {
 		}
 		else
 			GUI_Lavadero.getInstance().mostrarAlerta("Ya hay un lavado en curso");			
-	}
+	} 
 	
 	public double getPrecioTotal(){
 		return precioTotal;
