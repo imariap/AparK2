@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
@@ -21,6 +22,8 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
+import Main.Main;
 
 public class GUI_MostrarFacturas{
 	
@@ -245,7 +248,8 @@ public class GUI_MostrarFacturas{
 			}
 		});
 		
-		frame = new VentanaEstandar(root, "images/icoTaller.png");
+		URL icoTaller = Main.class.getResource("/Presentacion/Images/icoTaller.png");
+		frame = new VentanaEstandar(root, icoTaller);
 	}
 	
 	public void setVisible(boolean x){

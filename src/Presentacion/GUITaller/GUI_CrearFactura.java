@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
@@ -29,6 +30,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+
+import Main.Main;
 
 public class GUI_CrearFactura{
 
@@ -95,7 +98,8 @@ public class GUI_CrearFactura{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				
-				ArrayList<String> campos = new JDialogPiezas(frame, "Introducir pieza:", "Introducir nueva pieza:", new ImageIcon("images/iconoPiezas.png")).showDialog();
+				URL iconoPiezas = Main.class.getResource("/Presentacion/Images/iconoPiezas.png");
+				ArrayList<String> campos = new JDialogPiezas(frame, "Introducir pieza:", "Introducir nueva pieza:", new ImageIcon(iconoPiezas)).showDialog();
 				if(campos.size() > 0){
 			         
 			         if(campos.get(0).isEmpty()){
@@ -279,7 +283,8 @@ public class GUI_CrearFactura{
 			}
 		});
 		
-		frame = new VentanaEstandar(miPanel, "images/icoTaller.png");
+		URL icoTaller = Main.class.getResource("/Presentacion/Images/icoTaller.png");
+		frame = new VentanaEstandar(miPanel, icoTaller);
 		
 		frame.getRootPane().setDefaultButton(bt_guardar);
 	}
@@ -307,11 +312,13 @@ public class GUI_CrearFactura{
 	}
 	
 	public void mostrarAlerta(String texto){
-		new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon("images/warning2.png")).setVisible(true);
+		URL warning2 = Main.class.getResource("/Presentacion/Images/warning2.png");
+		new JDialogOKOption(frame, texto, "¡Error!", new ImageIcon(warning2)).setVisible(true);
 	}
 	
 	public void mostrarMensaje(String texto){
-		new JDialogOKOption(frame, texto, "Confirmación", new ImageIcon("images/iconoConfirmacion.png")).setVisible(true);
+		URL iconoConfirmacion = Main.class.getResource("/Presentacion/Images/iconoConfirmacion.png");
+		new JDialogOKOption(frame, texto, "Confirmación", new ImageIcon(iconoConfirmacion)).setVisible(true);
 	}
 
 	

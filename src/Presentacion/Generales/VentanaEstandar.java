@@ -8,10 +8,13 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
 import Almacen.ALMACEN;
+import Main.Main;
 import Presentacion.GUILavadero.*;
 import Presentacion.GUITaller.GUI_Taller;
    
@@ -22,7 +25,7 @@ public class VentanaEstandar extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private Color colorNaraja = new Color(230, 136, 1);
 	   
-      public VentanaEstandar(JPanel miPanel, String icono) {
+      public VentanaEstandar(JPanel miPanel, URL iconoIni) {
     	  
          super ("AparK2");
          
@@ -51,14 +54,15 @@ public class VentanaEstandar extends JFrame{
          f.add(panelCentral);
          
          // Label que contiene el logo en el panel de opciones (izquierdo)
-         JLabel labelLogoOpciones = new JLabel(new ImageIcon("images/logoOpciones.png"));
+         URL logoOpciones = Main.class.getResource("/Presentacion/Images/logoOpciones.png");
+         JLabel labelLogoOpciones = new JLabel(new ImageIcon(logoOpciones));
          
          // Añadimos al panel de opciones (iquierdo) el logo y el panel con los botones de opciones
          panelOpciones.add(labelLogoOpciones, BorderLayout.NORTH);
          panelOpciones.add(panelOpcionesBotones(), BorderLayout.CENTER);
          
          // Añadimos al panel central el logo principal y el panel especifico para cada ventana (miPanel)
-         panelCentral.add(panelLogoPrincipal(icono), BorderLayout.NORTH);
+         panelCentral.add(panelLogoPrincipal(iconoIni), BorderLayout.NORTH);
          panelCentral.add(miPanel, BorderLayout.CENTER); //********************************************************** PANEL PERSONALIZADO
          
          // Añadimos el panel de opciones al contenedor
@@ -87,12 +91,13 @@ public class VentanaEstandar extends JFrame{
          this.setVisible(true);
       }
       
-	JPanel panelLogoPrincipal(String icono) {
+	JPanel panelLogoPrincipal(URL iconoIni) {
 
 		JPanel jp = new JPanel(new BorderLayout());
 		jp.setBackground(Color.WHITE);
-		JLabel lb = new JLabel(new ImageIcon("images/logoPrincipal.png"));	
-		JLabel lbI = new JLabel(new ImageIcon(icono));	
+		URL logoPrincipal = Main.class.getResource("/Presentacion/Images/logoPrincipal.png");
+		JLabel lb = new JLabel(new ImageIcon(logoPrincipal));	
+		JLabel lbI = new JLabel(new ImageIcon(iconoIni));	
 		jp.add(lbI, BorderLayout.WEST);
 		jp.add(lb, BorderLayout.EAST);
 
@@ -105,7 +110,8 @@ public class VentanaEstandar extends JFrame{
 		jp.setLayout(new GridLayout(4, 1));		
 		jp.setBackground(colorNaraja);
 		
-		ImageIcon ii_inicio = new ImageIcon("images/inicio.png");
+		URL inicio = Main.class.getResource("/Presentacion/Images/inicio.png");
+		ImageIcon ii_inicio = new ImageIcon(inicio);
 		JButton b1 = botonNaranja(ii_inicio);
 		b1.setBorder(BorderFactory.createMatteBorder(1,1,0,1, Color.WHITE));
 		b1.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -120,7 +126,8 @@ public class VentanaEstandar extends JFrame{
 		});
 		jp.add(b1);
 		
-		ImageIcon ii_taller = new ImageIcon("images/taller.png");
+		URL taller = Main.class.getResource("/Presentacion/Images/taller.png");
+		ImageIcon ii_taller = new ImageIcon(taller);
 		JButton b2 = botonNaranja(ii_taller);
 		b2.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		b2.setBorder(BorderFactory.createMatteBorder(1,1,0,1, Color.WHITE));
@@ -135,7 +142,8 @@ public class VentanaEstandar extends JFrame{
 		});
 		jp.add(b2);
 		
-		ImageIcon ii_lavadero = new ImageIcon("images/lavadero.png");
+		URL lavadero = Main.class.getResource("/Presentacion/Images/lavadero.png");
+		ImageIcon ii_lavadero = new ImageIcon(lavadero);
 		JButton b3 = botonNaranja(ii_lavadero);
 		b3.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		b3.setBorder(BorderFactory.createMatteBorder(1,1,0,1, Color.WHITE));
@@ -150,7 +158,8 @@ public class VentanaEstandar extends JFrame{
 		});
 		jp.add(b3);
 		
-		ImageIcon ii_salir = new ImageIcon("images/salir.png");
+		URL salir = Main.class.getResource("/Presentacion/Images/salir.png");
+		ImageIcon ii_salir = new ImageIcon(salir);
 		JButton b4 = botonNaranja(ii_salir);
 		b4.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		b4.addActionListener(new ActionListener() {

@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 import Presentacion.Controlador.Gestor_Lavadero;
 import Presentacion.Generales.JBotonMenu;
@@ -20,6 +21,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingWorker;
+
+import Main.Main;
 
 public class GUI_SeleccionarTipo {
 
@@ -130,7 +133,8 @@ public class GUI_SeleccionarTipo {
 		gbc.gridy = 4;
 		root.add(bt_iniciarLavado, gbc);
 
-		frame = new VentanaEstandar(root, "images/icoLavadero.png");
+		URL icoLavadero = Main.class.getResource("/Presentacion/Images/icoLavadero.png");
+		frame = new VentanaEstandar(root, icoLavadero);
 
 	}
 
@@ -169,13 +173,10 @@ public class GUI_SeleccionarTipo {
 		this.frame.setVisible(x);
 		if (x) this.frame.toFront();
 	}
-
-	public void mostrarAlerta(String texto) {
-		JOptionPane.showMessageDialog(frame, texto, "¡Error!", JOptionPane.OK_OPTION);
-	}
 	
 	public void mostrarMensaje(String texto){
-		new JDialogOKOption(frame, texto, "Confirmación", new ImageIcon("images/iconoConfirmacion.png")).setVisible(true);
+		URL iconoConfirmacion = Main.class.getResource("/Presentacion/Images/iconoConfirmacion.png");
+		new JDialogOKOption(frame, texto, "Confirmación", new ImageIcon(iconoConfirmacion)).setVisible(true);
 	}
 
 }
