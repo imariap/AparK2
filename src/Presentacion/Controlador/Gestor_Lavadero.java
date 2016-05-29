@@ -90,6 +90,7 @@ public class Gestor_Lavadero {
 	}
 	
 	public void comprobarLavadoIniciado() {
+		GUI_InterrumpirLavado.getInstance().setVisible(false);
 		if(GUI_InterrumpirLavado.getInstance().getBar().getValue() == 0){
 			GUI_Lavadero.getInstance().setVisible(false);
 			GUI_SeleccionarTipo.getInstance().setVisible(true);
