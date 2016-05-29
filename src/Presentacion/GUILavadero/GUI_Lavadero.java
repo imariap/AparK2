@@ -24,6 +24,10 @@ import javax.swing.JPanel;
 import Main.Main;
 
 public class GUI_Lavadero extends JPanel{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static GUI_Lavadero instance = null;
 	private JBotonMenu bt_iniciarLavado;
 	private JBotonMenu bt_interrumpirLavado;

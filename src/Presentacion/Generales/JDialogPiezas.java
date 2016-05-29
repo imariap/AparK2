@@ -18,9 +18,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.xml.transform.OutputKeys;
-
-import Negocio.Taller.TransferPieza;
 
 public class JDialogPiezas extends JDialog {
     private static final long serialVersionUID = 1L;
@@ -35,21 +32,12 @@ public class JDialogPiezas extends JDialog {
 	private JLabel lb_preciopieza;
 	private JTextField txt_nombrepieza;
 	private JTextField txt_preciopieza;
-	private String texto;
-	private String Titulo;
-	private ImageIcon icono;
-	private JFrame frame;
 	private ArrayList<String> campos;
 
     public JDialogPiezas(JFrame frame, String texto, String Titulo, ImageIcon icono) {
     	super(frame);
     	//frame.setOpacity(0.50f)
     	this.campos = new ArrayList<String>();
-    	this.frame = frame;
-    	this.texto = texto;
-    	this.Titulo = Titulo;
-    	this.icono = icono;
-    	
     	DropShadowBorder b = new
       			 DropShadowBorder(Color.BLACK, 0,4, 0.4f, 10, true, true, true,
       			 true); getRootPane().setBorder(b); // borde exterior

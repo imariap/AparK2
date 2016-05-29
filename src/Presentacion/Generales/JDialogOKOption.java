@@ -18,7 +18,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import Presentacion.Controlador.Gestor_Lavadero;
-import Presentacion.GUILavadero.GUI_Lavadero;
 
 public class JDialogOKOption extends JDialog {
     private static final long serialVersionUID = 1L;
