@@ -1,6 +1,6 @@
 # AparK2
 
-Proyecto de gestión de un parking con lavado de coches y taller para la asignatura de Ingenieria del Software
+Proyecto de gestión de un parking con lavadero de coches y taller para la asignatura de Ingenieria del Software
 
 ### Patrones utilizados
 
