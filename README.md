@@ -16,3 +16,19 @@ Proyecto de gestión de un parking con lavado de coches y taller para la asignat
  - Plantila
  
 ### Capturas de pantalla
+
+![alt tag](http://i.imgur.com/AmcDb9O.png)
+
+![alt tag](http://i.imgur.com/n1YSfko.png)
+
+![alt tag](http://i.imgur.com/oIAktne.png)
+
+### Documentación
+
+ - [Especificiación de requisitos](https://github.com/imariap/AparK2/blob/master/Documentacion/SRS.pdf)
+ - [Plan de proyecto](https://github.com/imariap/AparK2/blob/master/Documentacion/Plan%20de%20Proyecto.pdf)
+ - [Memoria](https://github.com/imariap/AparK2/blob/master/Documentacion/Memoria.pdf)
+
+### Licencia
+
+Apache-2.0
